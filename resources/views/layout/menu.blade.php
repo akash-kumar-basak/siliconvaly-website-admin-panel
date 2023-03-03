@@ -34,13 +34,14 @@
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <a class="nav-link menu-link" href="{{ route('/') }}" da role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                             </a>
                         </li> <!-- end Dashboard Menu -->
+
 						<li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Settings</span>
+                            <a class="nav-link menu-link" href="{{ route('companySettings.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Company Settings</span>
                             </a>
                         </li> 
                        

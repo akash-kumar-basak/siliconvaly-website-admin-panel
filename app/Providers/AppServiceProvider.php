@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\CompanyModel;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Paginator::useBootstrap();
+        if ( !app()->runningInConsole() ){
+            $CompanyInformation = CompanyModel::find(1);
+            View::Share(compact("CompanyInformation"));
+        }
     }
 }

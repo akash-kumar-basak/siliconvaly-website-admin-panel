@@ -1,5 +1,5 @@
 @extends("layout.app")
-
+@section('title', 'Dashboard | Siliconvaly')
 @section("content")
 
         <!-- ============================================================== -->

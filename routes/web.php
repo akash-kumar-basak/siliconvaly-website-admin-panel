@@ -1,6 +1,10 @@
 <?php
 
+
+
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompanySettingsConrtoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('element.dashboard.dashboard');
-});
+})->name('/');
+
+Route::resource('companySettings', CompanySettingsConrtoller::class);
