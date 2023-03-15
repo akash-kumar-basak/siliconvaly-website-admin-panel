@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CompanyModel extends Model
+class Category1Model extends Model
 {
-    protected $table = 'company_setting';
+    protected $table = 'category_one';
     protected $guarded = [];
 }

@@ -12,24 +12,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create("company_setting", function (Blueprint $table){
-            $table-> bigIncrements("id");
-            $table -> string('favicon');
-            $table -> string('name');
-            $table -> string('title');
-            $table -> string('phone_one');
-            $table -> string('phone_two');
-            $table -> string('hot_line');
-            $table -> string('primary_email');
-            $table -> string('secondary_email');
-            $table -> string('primary_address');
-            $table -> string('company_logo');
-            $table -> string('website');
-            $table -> string('bin_no');
-            $table -> string('google_map');
-            $table -> string('facebook_page_id');
-            $table -> string('secondary_address');
-            $table -> string('meta_keyword');
-            $table -> string('meta_description');
+            $table->id();
+            $table -> string('favicon')->nullable();
+            $table -> string('name')->nullable();
+            $table -> string('title')->nullable();
+            $table -> string('phone_one')->nullable();
+            $table -> string('phone_two')->nullable();
+            $table -> string('hotline')->nullable();
+            $table -> string('email_one')->nullable();
+            $table -> string('email_two')->nullable();
+            $table -> string('address_one')->nullable();
+            $table -> string('address_two')->nullable();
+            $table -> string('company_logo')->nullable();
+            $table -> string('website')->nullable();
+            $table -> string('bin_no')->nullable();
+            $table -> string('google_map')->nullable();
+            $table -> string('facebook_page_id')->nullable();
+            $table -> string('meta_keyword')->nullable();
+            $table -> string('meta_description')->nullable();
             $table -> timestamps();
         });
     }

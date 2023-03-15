@@ -1,0 +1,73 @@
+@extends('layout.app')
+@section('title', 'Company Settings')
+@section('content')
+<div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+
+
+
+                        <div class="flex-grow-1">
+                                                <h4 class="fs-16 mb-1">Create Main Category</h4>
+                                                <p class="text-muted mb-0">You can create different types of main category for products</p>
+                                            </div>
+                                            <br>
+                    <form class="form-horizontal mt-2" action="{{ route('category1.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="">
+                        {{-- <div class="d-flex align-items-lg-center flex-lg-row flex-column"> --}}
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div align="center" class="row">
+                                    <div class="col-lg-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-text col-sm-2" id="basic-addon1">Name</span>
+                                                        <input type="text" class="form-control" aria-label="Name" name="name" aria-describedby="basic-addon1" value="{{$CompanyInformation->website}}">
+                                                    </div>
+                                                </div>
+                                </div>
+                                <br>
+                                <div align="center" class="row">
+                                    <div class="col-lg-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-text col-sm-2" id="basic-addon1">Slug</span>
+                                                        <input type="text" class="form-control" aria-label="Slug" name="slug" aria-describedby="basic-addon1" value="{{$CompanyInformation->bin_no}}">
+                                                    </div>
+                                                </div>
+                                </div>
+                                <br>
+                                <div align="center" class="row">
+                                    <div class="col-lg-12">
+                                                        <div class="form-check form-switch form-switch-info mb-3">
+                                                            <input class="form-check-input" type="checkbox" role="switch" name="status" checked>
+                                                            <label class="form-check-label" for="SwitchCheck6">Switch Info</label>
+                                                        </div>
+                                                </div>
+                                            </div>
+                        </div>
+                
+
+
+                    </div>
+                    <div align="right">
+                        <button class="btn btn-success" type="submit" id="uploadPercent">
+                            <i class="bx bx-save text-light"></i>
+                        Save
+                        </button>
+                                        
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endsection

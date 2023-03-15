@@ -1,7 +1,5 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
-
-
 <head>
 
     <meta charset="utf-8" />
@@ -100,16 +98,17 @@
 
     <!-- dropzone min -->
     <script src="{{ asset('assets/libs/dropzone/dropzone-min.js') }}"></script>
+
     <!-- filepond js -->
     <script src="{{ asset('assets/libs/filepond/filepond.min.js') }}"></script>
     <script src="{{ asset('assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js') }}"></script>
     <script src="{{ asset('assets/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js') }}"></script>
     <script src="{{ asset('assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js') }}"></script>
     <script src="{{ asset('assets/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js') }}"></script>
-
     <script src="{{ asset('assets/js/pages/form-file-upload.init.js') }}"></script>
-
     <script src="{{ asset('assets/js/app.js') }}"></script>
+
+    <script src="{{ asset('assets/js/axios.min.js') }}"></script>
 
 </body>
 
