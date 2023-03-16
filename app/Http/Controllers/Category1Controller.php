@@ -62,7 +62,13 @@ class Category1Controller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $category1= Category1Model::find($id);
+            $category1->delete();
+            return redirect('/');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error',$th->getMessage());
+        }
     }
 
     public function storeOrUpdate(Request $request, $id = null){

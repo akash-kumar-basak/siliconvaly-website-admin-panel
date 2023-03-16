@@ -37,11 +37,11 @@
                                                         <td><a href="#" class="fw-medium">{{ $loop->iteration }}</a></td>
                                                         <td>{{ $category2s->name }}</td>
                                                         <td>{{ $category2s->slug }}</td>
-                                                        <td><span class="badge bg-success">{{ $category2s->category_one_id }}</span></td>
+                                                        <td><span class="badge bg-success">{{ $category2s->category1->name }}</span></td>
                                                         <td><span class="badge bg-success">Active</span></td>
                                                         <td>
                                                             <button type="button" class="btn btn-sm btn-success">Edit</button>
-                                                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                                            <a href="{{ route('category2.destroy', $category2s->id) }}"><button type="button" class="btn btn-sm btn-danger">Delete</button></a>
                                                         </td>
                                                     </tr>
                                                     @endforeach

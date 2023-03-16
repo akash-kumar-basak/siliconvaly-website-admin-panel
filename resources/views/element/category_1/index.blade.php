@@ -37,11 +37,11 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $category1s->name }}</td>
                                                         <td>{{ $category1s->slug }}</td>
-                                                        <td><span class="badge bg-success"><a href="/category_read/{{ $category1s->id }}">Sub Category</a></span></td>
+                                                        <td><span class="badge bg-success"><a href="/category_read/{{ $category1s->id }}">View</a></span></td>
                                                         <td><span class="badge bg-success">Active</span></td>
                                                         <td>
                                                             <button type="button" class="btn btn-sm btn-success">Edit</button>
-                                                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                                            <a href="{{ route('category1.destroy', $category1s->id) }}"><button type="button" class="btn btn-sm btn-danger">Delete</button></a>
                                                         </td>
                                                     </tr>
                                                     @endforeach

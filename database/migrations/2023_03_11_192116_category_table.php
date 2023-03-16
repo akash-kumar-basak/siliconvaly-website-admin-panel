@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('serial');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
-            $table->foreignId('category_one_id')->constrained('category_one', 'id');
+            $table->foreignId('category_one_id')->constrained('category_one', 'id')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -36,7 +36,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category_one');
         Schema::dropIfExists('category_two');
+        Schema::dropIfExists('category_one');
+        
     }
 };

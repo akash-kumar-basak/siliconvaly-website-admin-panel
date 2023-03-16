@@ -25,7 +25,7 @@
                                     <div class="col-lg-12">
                                                     <div class="input-group">
                                                         <span class="input-group-text col-sm-2" id="basic-addon1">Name</span>
-                                                        <input type="text" class="form-control" aria-label="Name" name="name" aria-describedby="basic-addon1" value="{{$CompanyInformation->website}}">
+                                                        <input type="text" class="form-control" aria-label="Name" id="name" name="name" onkeyup="handle()" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                 </div>
@@ -34,7 +34,7 @@
                                     <div class="col-lg-12">
                                                     <div class="input-group">
                                                         <span class="input-group-text col-sm-2" id="basic-addon1">Slug</span>
-                                                        <input type="text" class="form-control" aria-label="Slug" name="slug" aria-describedby="basic-addon1" value="{{$CompanyInformation->bin_no}}">
+                                                        <input type="text" class="form-control" aria-label="Slug" id="slug" name="slug" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                 </div>
@@ -70,4 +70,30 @@
                 </div>
             </div>
         </div>
+
+
+        <script>
+            var tag_input = $('#form-field-tags');
+            try {
+                tag_input.tag({
+                    placeholder: tag_input.attr('placeholder'),
+                })
+    
+                var $tag_obj = $('#form-field-tags').data('tag');
+                var index = $tag_obj.inValues('some tag');
+                $tag_obj.remove(index);
+            } catch (e) {
+                tag_input.after('<textarea id="' + tag_input.attr('id') + '" name="' + tag_input.attr('name') + '" rows="3">' +
+                    tag_input.val() + '</textarea>').remove();
+            }
+        </script>
+    
+        <script>
+            function handle(e){
+                let pageNameValue = document.getElementById('name').value;
+                console.log(pageNameValue)
+                document.getElementById('slug').value = "/"+pageNameValue.replaceAll(" ", "-");
+            }
+        </script>
 @endsection
+

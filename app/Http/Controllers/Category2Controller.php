@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category2Model;
 use App\Models\Category1Model;
+use App\Models\Category2Model;
 use Illuminate\Http\Request;
 
 class Category2Controller extends Controller
@@ -18,7 +18,6 @@ class Category2Controller extends Controller
 
     public function category2Read(string $id){
         $data['category2'] = Category2Model::where("category_one_id", "=", $id)->get();
-        $data['allCategory1'] = Category1Model::all();
         return view('element.category_2.index', $data);
     }
 
@@ -27,7 +26,8 @@ class Category2Controller extends Controller
      */
     public function create()
     {
-        return view('element.category_2.create');
+        $data['allCategory1'] = Category1Model::all();
+        return view('element.category_2.create', $data);
     }
 
     /**
@@ -36,7 +36,7 @@ class Category2Controller extends Controller
     public function store(Request $request)
     {
         $this->storeOrUpdate($request);
-        return redirect(route('category2.index'));
+        return redirect('/category_read/'.$request->mainMenu);
     }
 
     /**
@@ -68,7 +68,14 @@ class Category2Controller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $category2 = Category2Model::find($id);
+            $category2->delete();
+
+            return redirect()->back()->with('success','Sub Menu Deleted Success');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error',$th->getMessage());
+        }
     }
 
     public function storeOrUpdate(Request $request, $id = null){
@@ -80,7 +87,7 @@ class Category2Controller extends Controller
                 [
                     'name'                  =>$request->name,
                     'slug'                  =>$request->slug,
-                    'category_one_id'       =>'1',
+                    'category_one_id'       =>$request->mainMenu,
                     'serial'                =>'1',
                     'status'                =>'1',
             ]);
