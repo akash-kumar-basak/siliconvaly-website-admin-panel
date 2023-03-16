@@ -11,7 +11,7 @@
 
                         <div class="flex-grow-1">
                                                 <h4 class="fs-16 mb-1">Create Sub Category</h4>
-                                                <p class="text-muted mb-0">You can create different types of main category for products</p>
+                                                <p class="text-muted mb-0">You can create different types of sub category for products</p>
                                             </div>
                                             <br>
                     <form class="form-horizontal mt-2" action="{{ route('category2.store') }}" method="POST" enctype="multipart/form-data">
@@ -21,6 +21,19 @@
                         <div class="row">
 
                             <div class="col-sm-12">
+                                <div align="center" class="row">
+                                    <div class="col-lg-12">
+                                                    <div class="input-group">
+                                                        <select class="" name="mainMenu">
+                                                            <option value="">-Select Main Category-</option>
+                                                            @foreach($allCategory1 as $allCategory1s)
+                                                            <option>{{ $allCategory1s->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                </div>
+                                <br>
                                 <div align="center" class="row">
                                     <div class="col-lg-12">
                                                     <div class="input-group">

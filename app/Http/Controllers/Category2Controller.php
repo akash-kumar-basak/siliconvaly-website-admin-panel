@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category2Model;
+use App\Models\Category1Model;
 use Illuminate\Http\Request;
 
 class Category2Controller extends Controller
@@ -12,12 +13,12 @@ class Category2Controller extends Controller
      */
     public function index()
     {
-        
         return view('element.category_2.index');
     }
 
-    public function category2Read(){
-        $data['category2'] = Category2Model::where("category_one_id", "=", 1)->get();
+    public function category2Read(string $id){
+        $data['category2'] = Category2Model::where("category_one_id", "=", $id)->get();
+        $data['allCategory1'] = Category1Model::all();
         return view('element.category_2.index', $data);
     }
 

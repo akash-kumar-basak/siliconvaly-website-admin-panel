@@ -37,7 +37,7 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $category1s->name }}</td>
                                                         <td>{{ $category1s->slug }}</td>
-                                                        <a href="/category2Read"><td><span class="badge bg-success">Sub Category</span></td></a>
+                                                        <td><span class="badge bg-success"><a href="/category_read/{{ $category1s->id }}">Sub Category</a></span></td>
                                                         <td><span class="badge bg-success">Active</span></td>
                                                         <td>
                                                             <button type="button" class="btn btn-sm btn-success">Edit</button>
