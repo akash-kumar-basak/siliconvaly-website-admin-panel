@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('category_one', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->string('serial');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->string('serial')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
 
         Schema::create('category_two', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->string('serial');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->string('serial')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
             $table->foreignId('category_one_id')->constrained('category_one', 'id')->onUpdate('cascade')->onDelete('cascade');

@@ -4,6 +4,8 @@
 <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-body">
                     <div class="row">
                         <div class="col">
 
@@ -202,6 +204,8 @@
                                         
                     </div>
                     <br>
+                    </div>
+                    </div>
                 </div>
             </div>
         </form>

@@ -106,6 +106,7 @@
     <script src="{{ asset('assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js') }}"></script>
     <script src="{{ asset('assets/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js') }}"></script>
     <script src="{{ asset('assets/js/pages/form-file-upload.init.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/form-wizard.init.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
     <script src="{{ asset('assets/js/axios.min.js') }}"></script>

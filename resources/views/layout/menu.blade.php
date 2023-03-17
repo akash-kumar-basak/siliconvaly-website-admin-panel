@@ -52,7 +52,7 @@
                         </li> 
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <a class="nav-link menu-link" href="{{ route('product.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-folder-2-line"></i> <span data-key="t-dashboards">Product</span>
                             </a>
                         </li> 
