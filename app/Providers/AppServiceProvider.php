@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Models\CompanyModel;
+use App\Models\backend\CompanyModel;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 

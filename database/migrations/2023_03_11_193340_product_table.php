@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('serial')->default(1);
-            $table->string('category');
+            $table->string('category_id');
+            $table->string('category_table');
             $table->text('short_description')->nullable();
             $table->text('long_description')->nullable();
             $table->string('brand')->nullable();
