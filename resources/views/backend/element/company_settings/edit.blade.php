@@ -176,6 +176,15 @@
                                 <div align="center" class="row">
                                     <div class="col-lg-12">
                                                     <div class="input-group">
+                                                        <span class="input-group-text col-sm-3" id="basic-addon1">Announcement</span>
+                                                        <textarea type="text" rows='5' class="form-control" aria-label="Name" name="announcement" aria-describedby="basic-addon1">{{$CompanyInformation->announcement}}</textarea>
+                                                    </div>
+                                                </div>
+                                </div>
+                                <br>
+                                <div align="center" class="row">
+                                    <div class="col-lg-12">
+                                                    <div class="input-group">
                                                         <span class="input-group-text col-sm-3" id="basic-addon1">Meta Keyword</span>
                                                         <input type="text" class="form-control" aria-label="Name" name="meta_keyword" aria-describedby="basic-addon1" value="{{$CompanyInformation->meta_keyword}}">
                                                     </div>

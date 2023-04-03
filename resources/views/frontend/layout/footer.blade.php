@@ -12,8 +12,8 @@
                                 <p class="phone-info">
                                     NEED HELP?
                                     <span>
-                                                01720362628 <br />
-                                                01642406074
+                                    {{$CompanyInformation->phone_one}} <br />
+                                    {{$CompanyInformation->phone_two}}
                                             </span>
                                 </p>
                             </div>

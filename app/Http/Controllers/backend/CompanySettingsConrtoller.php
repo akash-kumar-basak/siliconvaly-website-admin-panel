@@ -90,6 +90,7 @@ class CompanySettingsConrtoller extends Controller
                         'email_two'             =>$request->email_two,
                         'address_one'           =>$request->address_one,
                         'address_two'           =>$request->address_two,
+                        'announcement'          =>$request->announcement,
                         'website'               =>$request->website,
                         'bin_no'                =>$request->bin_no,
                         'google_map'            =>$request->google_map,

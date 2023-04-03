@@ -23,6 +23,7 @@ return new class extends Migration
             $table -> string('email_two')->nullable();
             $table -> string('address_one')->nullable();
             $table -> string('address_two')->nullable();
+            $table -> string('announcement')->nullable();
             $table -> string('company_logo')->nullable();
             $table -> string('website')->nullable();
             $table -> string('bin_no')->nullable();
