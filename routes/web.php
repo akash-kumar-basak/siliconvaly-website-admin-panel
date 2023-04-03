@@ -33,3 +33,4 @@ Route::resource('product', ProductController::class);
 
 //---------------frontend------------------------
 Route::get('/', [homeController::class, 'home']);
+Route::get('/product/{category}/{id}', [homeController::class, 'productDetails']);

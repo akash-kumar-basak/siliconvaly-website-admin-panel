@@ -16,4 +16,8 @@ class homeController extends Controller
         $data['category2s'] = Category2Model::all();
         return view('frontend.element.home.homepage', $data);
     }
+
+    public function productDetails($category, $id){
+        return view('frontend.element.product.product-details');
+    }
 }
