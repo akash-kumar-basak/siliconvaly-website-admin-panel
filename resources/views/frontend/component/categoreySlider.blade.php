@@ -12,7 +12,7 @@
                                         <li>
                                             <ul class="submenu-item">
                                                 @foreach ($category2s as $category2)
-                                                <li><a href="#">@if($category2->category_one_id == $category1->id) {{ $category2->name }} @endif</a></li>
+                                                @if($category2->category_one_id == $category1->id)<li><a href="#"> {{ $category2->name }} </a></li>@endif
                                                 @endforeach
                                             </ul>
                                         </li>

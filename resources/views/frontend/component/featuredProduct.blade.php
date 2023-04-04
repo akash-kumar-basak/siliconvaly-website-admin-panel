@@ -15,7 +15,7 @@
                 <div class="feature-slider-item swiper-slide">
                     <article class="list-product">
                         <div class="img-block">
-                            <a href="/product/{{$products->category_id}}/{{$products->id}}" class="thumbnail">
+                            <a href="/product/{{ CategoryName($products->category_table, $products->category_id) }}/{{$products->id}}" class="thumbnail">
                                 <img class="first-img" src="{{ asset($products->image_one) }}" alt="" />
                                 <img class="second-img" src="{{ asset($products->image_two) }}" alt="" />
                             </a>
