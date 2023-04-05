@@ -30,6 +30,7 @@ return new class extends Migration
             $table->text('warranty_period')->nullable();
             $table->text('warranty_policy')->nullable();
             $table->string('package_weight')->nullable();
+            $table->string('sku')->nullable();
             $table->string('package_dimensions')->nullable();
             $table->string('dangerous_goods')->nullable();
             $table->string('image_one')->nullable();

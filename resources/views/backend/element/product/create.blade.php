@@ -101,6 +101,15 @@
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="mb-3">
+                                                                <label class="form-label" for="gen-info-email-input">SKU</label>
+                                                                <input type="text" class="form-control" id="gen-info-email-input" name="sku" placeholder="Enter sku" required >
+                                                                <div class="invalid-feedback">Please enter a sku code</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="mb-3">
                                                                 <div>
                                                                     <label class="form-label" for="gen-info-description-input">Short Description</label>
                                                                     <textarea class="form-control" placeholder="Enter Short Description" id="gen-info-description-input" name="shortDescription" rows="2"></textarea>
@@ -167,7 +176,7 @@
                                                         <div class="col-lg-12">
                                                             <div class="mb-3" style="border:1px dashed rgb(192, 192, 192);">
                                                                 <div class="mt-3 mb-3">
-                                                                    <label class="form-label" for="gen-info-description-input">Upload Multiple Images (maximum 5 images Support)</label><br>
+                                                                    <label class="form-label" for="gen-info-description-input">Upload Multiple Images (maximum 5 images Support) <span class="text-danger">Note: Image size 230.5*230.5 recommended</span></label><br>
                                                                     <input type="file" name="image[]"  multiple="multiple">
                                                                 </div>
                                                             </div>

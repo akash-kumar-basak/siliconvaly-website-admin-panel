@@ -103,6 +103,7 @@ class ProductController extends Controller
                     'warranty_policy'       =>$request->warrentyPolicy,
                     'package_weight'        =>$request->packageWeight,
                     'package_dimensions'    =>$request->packageDimensions,
+                    'sku'                   =>$request->sku,
                     'dangerous_goods'       =>"",
                     'serial'                =>1,
                     'status'                =>1,

@@ -16,7 +16,7 @@
                     <article class="list-product">
                         <div class="img-block">
                             <a href="/product/{{ CategoryName($products->category_table, $products->category_id) }}/{{$products->id}}" class="thumbnail">
-                                <img class="first-img" src="{{ asset($products->image_one) }}" alt="" />
+                                <img class="first-img" src="{{ asset($products->image_one) }}" width="230.5" height="230.5" alt="" />
                                 <img class="second-img" src="{{ asset($products->image_two) }}" alt="" />
                             </a>
                             <div class="quick-view">
@@ -29,8 +29,8 @@
                             <li class="new">New</li>
                         </ul>
                         <div class="product-decs">
-                            <a class="inner-link" href="shop-4-column.html"><span>{{$products->product_name}}</span></a>
-                            <h2><a href="single-product.html" class="product-link">{{$products->short_description}}</a></h2>
+                            <a class="inner-link" href="/product/{{ CategoryName($products->category_table, $products->category_id) }}/{{$products->id}}"><span>{{ Str::limit($products->name, 20) }}</span></a>
+                            <h2><a href="single-product.html" class="product-link">{{ $products->brand }}</a></h2>
                             <div class="rating-product">
                                 <i class="ion-android-star"></i>
                                 <i class="ion-android-star"></i>
@@ -42,7 +42,7 @@
                             <div class="pricing-meta">
                                 <ul>
                                     <li class="old-price @php if($products->discount<1){echo 'not-cut';} @endphp ">৳{{$products->regular_price}}</li>
-                                    <li class="current-price">৳@php if($products->discount>=1){echo $products->product_price;}@endphp</li>
+                                    <li class="current-price">৳@php if($products->discount>=1){echo $products->sale_price;}@endphp</li>
                                     <li class="discount-price">@php if($products->discount>=1){echo '-'.$products->discount.'%';}@endphp</li>
                                 </ul>
                             </div>
