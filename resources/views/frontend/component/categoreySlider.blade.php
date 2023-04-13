@@ -8,17 +8,15 @@
                                 @foreach ($category1s as $category1)
                                 <li class="menu-item">
                                     <a href="#">{{ $category1->name}}  <i class="ion-ios-arrow-right"></i></a>
-                                    @foreach ($category2s as $category2)
-                                    @if($category2->category_one_id == $category1->id)
                                     <ul class="sub-menu sub-menu-2">
                                         <li>
                                             <ul class="submenu-item">
-                                                <li><a href="#"> {{ $category2->name }} </a></li>
+                                                @foreach ($category2s as $category2)
+                                                @if($category2->category_one_id == $category1->id)<li><a href="#"> {{ $category2->name }} </a></li>@endif
+                                                @endforeach
                                             </ul>
                                         </li>
                                     </ul>
-                                    @endif
-                                    @endforeach
                                     <!-- sub menu -->
                                 </li>
                                 @endforeach
