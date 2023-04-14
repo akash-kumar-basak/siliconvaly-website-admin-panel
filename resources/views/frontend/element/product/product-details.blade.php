@@ -12,7 +12,7 @@
                     <div class="breadcrumb-content">
                         <ul class="nav">
                             <li><a href="/">Home</a></li>
-                            <li>{{ $product->category1->name}}</li>
+                            
                             <li>{{ CategoryName($product->category_table, $product->category_id) }}</li>
                             <li>{{ $product->name}}</li>
                         </ul>
