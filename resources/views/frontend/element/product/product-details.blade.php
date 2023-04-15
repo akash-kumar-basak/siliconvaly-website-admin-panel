@@ -12,8 +12,12 @@
                     <div class="breadcrumb-content">
                         <ul class="nav">
                             <li><a href="/">Home</a></li>
-                            
-                            <li>{{ CategoryName($product->category_table, $product->category_id) }}</li>
+                            @if($product->category_table == 'category_one')
+                                <li>{{ category1Name($product->category_id) }}</li>
+                            @else
+                                <li>{{ category1Name($product->category_id) }}</li>
+                                <li>{{ CategoryName($product->category_table, $product->category_id) }}</li>
+                            @endif
                             <li>{{ $product->name}}</li>
                         </ul>
                     </div>

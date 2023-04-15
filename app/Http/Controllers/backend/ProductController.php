@@ -73,7 +73,13 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $product= ProductModel::find($id);
+            $product->delete();
+            return redirect('/');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error',$th->getMessage());
+        }
     }
 
     public function storeOrUpdate(Request $request, $id = null){

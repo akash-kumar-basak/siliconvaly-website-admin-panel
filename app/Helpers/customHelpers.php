@@ -11,3 +11,10 @@ function CategoryName($tablename, $id){
     }
     return $categoryName;
 }
+
+
+function category1Name($id){
+    $category1Id = Category2Model::find($id)->category_one_id;
+    $name = Category1Model::find($category1Id)->name;
+    return $name;
+}
