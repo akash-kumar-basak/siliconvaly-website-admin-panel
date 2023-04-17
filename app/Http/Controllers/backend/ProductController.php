@@ -57,7 +57,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['product'] = ProductModel::find($id);
+        $data['allCategory1'] = Category1Model::all();
+        $data['allCategory2'] = Category2Model::all();
+        return view('backend.element.product.edit', $data);
     }
 
     /**
@@ -114,20 +117,21 @@ class ProductController extends Controller
                     'serial'                =>1,
                     'status'                =>1,
             ]);
+
             if(isset($request->image[0])){
-                $this->upload_file($request->image[0], $product, 'image_one', 'product/image');
+                $this->upload_file($request->image[0], $product, 'image_one', 'product/image1');
             }
-            elseif(isset($request->image[1])){
-                $this->upload_file($request->image[1], $product, 'image_two', 'product/image');
+            if(isset($request->image[1])){
+                $this->upload_file($request->image[1], $product, 'image_two', 'product/image2');
             }
-            elseif(isset($request->image[2])){
-                $this->upload_file($request->image[2], $product, 'image_three', 'product/image');
+            if(isset($request->image[2])){
+                $this->upload_file($request->image[2], $product, 'image_three', 'product/image3');
             }
-            elseif(isset($request->image[3])){
-                $this->upload_file($request->image[3], $product, 'image_four', 'product/image');
+            if(isset($request->image[3])){
+                $this->upload_file($request->image[3], $product, 'image_four', 'product/image4');
             }
-            elseif(isset($request->image[4])){
-                $this->upload_file($request->image[4], $product, 'image_five', 'product/image');
+            if(isset($request->image[4])){
+                $this->upload_file($request->image[4], $product, 'image_five', 'product/image5');
             }
         } catch (\Throwable $th) {
             throw $th;

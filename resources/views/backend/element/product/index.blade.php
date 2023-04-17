@@ -62,8 +62,11 @@
                                                             <input class="form-check-input" type="checkbox" role="switch" name="status" checked>
                                                         </div></td>
                                                         <td>
-                                                            <button type="button" class="btn btn-sm btn-success"><i class=" ri-edit-box-line label-icon align-middle fs-16"></i></button>
-                                                            <a href="{{ route('product.destroy', $allProduct->id) }}"><button type="button" class="btn btn-sm btn-danger"><i class="ri-delete-bin-6-line label-icon align-middle fs-16"></i></button></a>
+                                                            <a href="{{ route('product.edit', $allProduct->id) }}"><button type="button" class="btn btn-sm btn-success"><i class=" ri-edit-box-line label-icon align-middle fs-16"></i></button></a>
+{{--                                                            <form action="{{ route('product.destroy', $allProduct->id) }}" method="post">--}}
+{{--                                                                @method('put')--}}
+                                                            <button type="submit" class="btn btn-sm btn-danger"><i class="ri-delete-bin-6-line label-icon align-middle fs-16"></i></button>
+{{--                                                            </form>--}}
                                                         </td>
                                                     </tr>
                                                     @endforeach

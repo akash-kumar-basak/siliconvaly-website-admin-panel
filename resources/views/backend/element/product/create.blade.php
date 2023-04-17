@@ -31,8 +31,8 @@
                                                         <select class="form-select mb-3" aria-label="Default select example" name="category">
                                                             <option selected>Select Category</option>
                                                             @php
-                                                               use App\Models\backend\Category1Model; 
-                                                               use App\Models\backend\Category2Model; 
+                                                               use App\Models\backend\Category1Model;
+                                                               use App\Models\backend\Category2Model;
                                                             @endphp
                                                             @endphp
                                                             @foreach ($allCategory1 as $allCategory1s)
@@ -102,7 +102,7 @@
                                                         <div class="col-lg-12">
                                                             <div class="mb-3">
                                                                 <label class="form-label" for="gen-info-email-input">SKU</label>
-                                                                <input type="text" class="form-control" id="gen-info-email-input" name="sku" placeholder="Enter sku" required >
+                                                                <input type="text" class="form-control" id="gen-info-email-input" name="sku" placeholder="Enter sku" >
                                                                 <div class="invalid-feedback">Please enter a sku code</div>
                                                             </div>
                                                         </div>
@@ -263,7 +263,7 @@
                                                     <button type="submit" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="pills-info-desc-tab"><i class="ri-save-line label-icon align-middle fs-16 ms-2"></i>Save</button>
                                                 </div>
                                             </div>
-                                            
+
 
                                             <div class="tab-pane fade" id="pills-success" role="tabpanel" aria-labelledby="pills-success-tab">
                                                 <div>
@@ -283,9 +283,9 @@
                             </div>
                             <!-- end card -->
                         </div>
-                        
-                        
-                
+
+
+
 
 
                     </div>
