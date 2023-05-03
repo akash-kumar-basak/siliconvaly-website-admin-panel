@@ -91,7 +91,8 @@ class ProductController extends Controller
                 unlink($product->image_four);
             }
             if(file_exists($product->image_five)){
-                unlink($product->image_five);
+                unlink($product->image_five
+                );
             }
             $product->delete();
 

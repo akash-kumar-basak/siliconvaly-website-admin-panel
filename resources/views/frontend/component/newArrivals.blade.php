@@ -15,8 +15,8 @@
                         <article class="list-product">
                             <div class="img-block">
                                 <a href="single-product.html" class="thumbnail">
-                                            <img class="first-img" src="http://{{$products->image_url_one}}" alt="" />
-                                            <img class="second-img" src="http://{{$products->image_url_one}}" alt="" />
+                                            <img class="first-img" src="{{ asset($products->image_one) }}" alt="" />
+                                            <img class="second-img" src="{{ asset($products->image_two) }}" alt="" />
                                         </a>
                                 <div class="quick-view">
                                     <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -25,8 +25,8 @@
                                 </div>
                             </div>
                             <div class="product-decs">
-                                <a class="inner-link" href="shop-4-column.html"><span>{{$products->product_name}}</span></a>
-                                <h2><a href="single-product.html" class="product-link">{{$products->short_description}}</a></h2>
+                                <a class="inner-link" href="shop-4-column.html"><span>{{ Str::limit($products->name, 20) }}</span></a>
+                                <h2><a href="single-product.html" class="product-link">{{ $products->brand }}</a></h2>
                                 <div class="rating-product">
                                     <i class="ion-android-star"></i>
                                     <i class="ion-android-star"></i>
@@ -46,8 +46,8 @@
                         <article class="list-product">
                             <div class="img-block">
                                 <a href="single-product.html" class="thumbnail">
-                                            <img class="first-img" src="http://{{$products->image_url_one}}" alt="" />
-                                            <img class="second-img" src="http://{{$products->image_url_two}}" alt="" />
+                                            <img class="first-img" src="{{ asset($products->image_one) }}" alt="" />
+                                            <img class="second-img" src="{{ asset($products->image_two) }}" alt="" />
                                         </a>
                                 <div class="quick-view">
                                     <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">

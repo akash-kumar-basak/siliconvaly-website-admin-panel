@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="banner-wrapper">
-                        <a href=""><img src="{{asset('backend/images/banner-images/banner-image3.jpg')}}" alt=""  /></a>
+                        <a href=""><img src="{{asset('assets/images/banner3.png')}}" alt=""  /></a>
                     </div>
                 </div>
             </div>
