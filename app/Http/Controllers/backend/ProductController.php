@@ -77,11 +77,27 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         try {
-            $product= ProductModel::find($id);
+            $product = ProductModel::find($id);
+            if(file_exists($product->image_one)){
+                unlink($product->image_one);
+            }
+            if(file_exists($product->image_two)){
+                unlink($product->image_two);
+            }
+            if(file_exists($product->image_three)){
+                unlink($product->image_three);
+            }
+            if(file_exists($product->image_four)){
+                unlink($product->image_four);
+            }
+            if(file_exists($product->image_five)){
+                unlink($product->image_five);
+            }
             $product->delete();
-            return redirect('/');
+
+            return redirect()->route("product.index")->with('success','Product Deleted!');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error',$th->getMessage());
+            return redirect()->route("product.index")->with('error',$th->getMessage());
         }
     }
 

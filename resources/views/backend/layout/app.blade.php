@@ -37,7 +37,7 @@
 @include('backend.layout.header')
 @include('backend.layout.menu')
 @yield('content')
-        
+
 
 <!-- removeNotificationModal -->
 <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
@@ -78,13 +78,13 @@
     <!--end back-to-top-->
 	@include('backend.layout.footer')
 
-    
+
 
                 </div>
             </div>
 
         </div>
-        
+
     </div>
 
 

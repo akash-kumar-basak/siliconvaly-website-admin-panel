@@ -62,11 +62,13 @@
                                                             <input class="form-check-input" type="checkbox" role="switch" name="status" checked>
                                                         </div></td>
                                                         <td>
-                                                            <a href="{{ route('product.edit', $allProduct->id) }}"><button type="button" class="btn btn-sm btn-success"><i class=" ri-edit-box-line label-icon align-middle fs-16"></i></button></a>
-{{--                                                            <form action="{{ route('product.destroy', $allProduct->id) }}" method="post">--}}
-{{--                                                                @method('put')--}}
-                                                            <button type="submit" class="btn btn-sm btn-danger"><i class="ri-delete-bin-6-line label-icon align-middle fs-16"></i></button>
-{{--                                                            </form>--}}
+                                                            <div class="btn-group">
+                                                            <a href="{{ route('product.edit', $allProduct->id) }}"><i class="btn btn-sm btn-success ri-edit-box-line label-icon align-middle fs-16"></i></a>&nbsp;
+                                                            <form action="{{ route('product.destroy', $allProduct->id) }}" onsubmit="return confirm('You want to delete this product?');" method="POST">
+                                                                @csrf @method('DELETE')
+                                                                <button type="submit" class="btn btn-sm btn-danger"><i class="ri-delete-bin-6-line label-icon align-middle fs-16"></i></button>
+                                                            </form>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     @endforeach
