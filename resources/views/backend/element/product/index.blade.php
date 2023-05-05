@@ -38,7 +38,7 @@
                                                     @foreach ($allProducts as $allProduct)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $allProduct->name }}</td>
+                                                        <td>{{ Str::limit($allProduct->name, 30) }}</td>
                                                         <td>
                                                             <img src="{{ asset($allProduct->image_one) }}" width="auto" height="30">
                                                             <img src="{{ asset($allProduct->image_two) }}" width="auto" height="30">
