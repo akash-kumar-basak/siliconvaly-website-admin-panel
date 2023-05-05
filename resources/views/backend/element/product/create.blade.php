@@ -13,7 +13,7 @@
 
                         <div class="flex-grow-1">
                                                 <h4 class="fs-16 mb-1">Upload Product</h4>
-                                                <p class="text-muted mb-0">You can upload single product from here. Save button for fast upload, Proceed To Next button for details upload</p>
+                                                <p class="text-muted mb-0">You can upload single product from here. Give required information and click save button.</p>
                                             </div>
                                             <br>
                     <form class="form-horizontal mt-2" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
@@ -39,7 +39,7 @@
                                                                 <option value="{{ $allCategory1s->id }}|{{(new Category1Model())->getTable()}}"> {{ $allCategory1s->name }} </option>
                                                             @endforeach
                                                             @foreach ($allCategory2 as $allCategory2s)
-                                                                <option value="{{ $allCategory2s->id }}|{{(new Category2Model())->getTable()}}"> {{ $allCategory2s->name }} </option>
+                                                                <option value="{{ $allCategory2s->id }}|{{(new Category2Model())->getTable()}}"> {{ $allCategory2s->category1->name }}&rarr;{{ $allCategory2s->name }} </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -195,11 +195,11 @@
                                                         <div class="col-lg-2">
                                                             <div class="mb-3">
                                                                 <div>
-                                                                    <label class="form-label" for="gen-info-description-input">Dangirous Goods</label>
+                                                                    <label class="form-label" for="gen-info-description-input">Dangerous Goods</label>
                                                                         <div class="form-check form-radio-success mb-2">
-                                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                                            <input class="form-check-input" type="radio" name="dangerousGoods" id="flexRadioDefault1" value="liquid">
                                                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                                                Liquide
+                                                                                Liquid
                                                                             </label>
                                                                         </div>
                                                                 </div>
@@ -210,7 +210,7 @@
                                                                 <div>
                                                                     <label class="form-label" for="gen-info-description-input"></label>
                                                                         <div class="form-check form-radio-success mb-2">
-                                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                                            <input class="form-check-input" type="radio" name="dangerousGoods" id="flexRadioDefault1" value="breakable">
                                                                             <label class="form-check-label" for="flexRadioDefault1">
                                                                                 Breakable
                                                                             </label>
@@ -223,9 +223,9 @@
                                                                 <div>
                                                                     <label class="form-label" for="gen-info-description-input"></label>
                                                                         <div class="form-check form-radio-success mb-2">
-                                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                                            <input class="form-check-input" type="radio" name="dangerousGoods" id="flexRadioDefault1" value="flammable">
                                                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                                                Flammengo
+                                                                                Flammable
                                                                             </label>
                                                                         </div>
                                                                 </div>
@@ -236,7 +236,7 @@
                                                                 <div>
                                                                     <label class="form-label" for="gen-info-description-input"></label>
                                                                         <div class="form-check form-radio-success mb-2">
-                                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                                            <input class="form-check-input" type="radio" name="dangerousGoods" id="flexRadioDefault1" value="gas">
                                                                             <label class="form-check-label" for="flexRadioDefault1">
                                                                                 Gas
                                                                             </label>
@@ -248,8 +248,21 @@
                                                             <div class="mb-3">
                                                                 <div>
                                                                     <label class="form-label" for="gen-info-description-input"></label>
+                                                                    <div class="form-check form-radio-success mb-2">
+                                                                        <input class="form-check-input" type="radio" name="dangerousGoods" id="flexRadioDefault1" value="battery">
+                                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                                            Battery
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-2">
+                                                            <div class="mb-3">
+                                                                <div>
+                                                                    <label class="form-label" for="gen-info-description-input"></label>
                                                                         <div class="form-check form-radio-success mb-2">
-                                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                                                            <input class="form-check-input" type="radio" name="dangerousGoods" id="flexRadioDefault1" value="none" checked>
                                                                             <label class="form-check-label" for="flexRadioDefault1">
                                                                                 None
                                                                             </label>

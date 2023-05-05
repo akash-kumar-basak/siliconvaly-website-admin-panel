@@ -30,7 +30,7 @@
                         </ul>
                         <div class="product-decs">
                             <a class="inner-link" href="/product/{{ CategoryName($products->category_table, $products->category_id) }}/{{$products->id}}"><span>{{ Str::limit($products->name, 20) }}</span></a>
-                            <h2><a href="single-product.html" class="product-link">{{ $products->brand }}</a></h2>
+                            <h2><a href="/product/{{ CategoryName($products->category_table, $products->category_id) }}/{{$products->id}}" class="product-link">{{ $products->brand }}</a></h2>
                             <div class="rating-product">
                                 <i class="ion-android-star"></i>
                                 <i class="ion-android-star"></i>

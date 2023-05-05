@@ -11,6 +11,13 @@ use App\Models\backend\CompanyModel;
 use App\Traits\FileSaver;
 use Intervention\Image\Facades\Image;
 
+define('liquid', 'liquid');
+define('breakable', 'breakable');
+define('flammable', 'flammable');
+define('gas', 'gas');
+define('battery', 'battery');
+define('none', 'none');
+
 class ProductController extends Controller
 {
 
@@ -68,7 +75,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->storeOrUpdate($request, $id);
+        return redirect(route('product.index'));
     }
 
     /**
@@ -130,7 +138,7 @@ class ProductController extends Controller
                     'package_weight'        =>$request->packageWeight,
                     'package_dimensions'    =>$request->packageDimensions,
                     'sku'                   =>$request->sku,
-                    'dangerous_goods'       =>"",
+                    'dangerous_goods'       =>$request->dangerousGoods,
                     'serial'                =>1,
                     'status'                =>1,
             ]);

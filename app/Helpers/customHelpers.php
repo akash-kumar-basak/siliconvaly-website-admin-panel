@@ -18,3 +18,12 @@ function category1Name($id){
     $name = Category1Model::find($category1Id)->name;
     return $name;
 }
+
+function dangerousGoodsChecke($checkboxValue, $checkedDataValue){
+    if ($checkboxValue == $checkedDataValue){
+        return 'checked';
+    }
+    else{
+        return '';
+    }
+}
