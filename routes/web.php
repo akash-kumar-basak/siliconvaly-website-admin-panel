@@ -34,5 +34,5 @@ Route::resource('product', ProductController::class);
 //---------------frontend------------------------
 Route::get('/', [homeController::class, 'home']);
 Route::get('/product/{category}/{id}', [homeController::class, 'productDetails']);
-Route::get('/product_carts', [homeController::class, 'productCart']);
-Route::get('/product_checkouts', [homeController::class, 'productCheckout']);
+Route::get('/product_cart', [homeController::class, 'productCart']);
+Route::get('/product_checkout', [homeController::class, 'productCheckout']);
