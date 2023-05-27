@@ -284,8 +284,8 @@
                 <span class="amount">$144.00</span>
             </div>
             <div class="buttons">
-                <a href="cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
+                <a href="/product_cart" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+                <a href="/product_checkout" class="btn btn-outline-dark current-btn">checkout</a>
             </div>
             <p class="minicart-message">Free Shipping on All Orders Over $100!</p>
         </div>

@@ -21,4 +21,12 @@ class homeController extends Controller
         $product = ProductModel::find($id);
         return view('frontend.element.product.product-details', compact('product'));
     }
+
+    public function productCart(){
+        return view('frontend.element.product.product-cart');
+    }
+
+    public function productCheckout(){
+        return view('frontend.element.product.product-checkout');
+    }
 }

@@ -17,7 +17,6 @@
                         <div class="img-block">
                             <a href="/product/{{ CategoryName($products->category_table, $products->category_id) }}/{{$products->id}}" class="thumbnail">
                                 <img class="first-img" src="{{ asset($products->image_one) }}" width="230.5" height="230.5" alt="" />
-                                <img class="second-img" src="{{ asset($products->image_two) }}" alt="" />
                             </a>
                             <div class="quick-view">
                                 <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal">
