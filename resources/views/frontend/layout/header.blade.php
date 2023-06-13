@@ -398,7 +398,7 @@
         <div class="offcanvas-buttons mt-30px">
             <div class="header-tools d-flex">
                 <div class="cart-info d-flex align-self-center">
-                    <a href="my-account.html" class="user"><i class="icon-user"></i></a>
+                    <a href="{{ route('customer.create') }}" class="user"><i class="icon-user"></i></a>
                     <a href="wishlist.html" data-number="3"><i class="icon-heart"></i></a>
                     <a href="cart.html" data-number="3"><i class="icon-bag"></i></a>
                 </div>

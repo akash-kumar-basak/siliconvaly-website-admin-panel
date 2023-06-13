@@ -29,4 +29,5 @@ class homeController extends Controller
     public function productCheckout(){
         return view('frontend.element.product.product-checkout');
     }
+
 }

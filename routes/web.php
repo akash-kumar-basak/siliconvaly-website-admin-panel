@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\CompanySettingsConrtoller;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\frontend\homeController;
+use App\Http\Controllers\frontend\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,11 @@ Route::resource('product', ProductController::class);
 
 
 //---------------frontend------------------------
+Route::resource('customer', CustomerController::class);
 Route::get('/', [homeController::class, 'home']);
 Route::get('/product/{category}/{id}', [homeController::class, 'productDetails']);
 Route::get('/product_cart', [homeController::class, 'productCart']);
 Route::get('/product_checkout', [homeController::class, 'productCheckout']);
+
+
+
