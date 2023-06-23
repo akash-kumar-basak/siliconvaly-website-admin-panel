@@ -199,8 +199,13 @@
                                         </div>
                                         <div class="your-order-middle">
                                             <ul>
-                                                <li><span class="order-middle-left">Product Name X 1</span> <span class="order-price">$329 </span></li>
-                                                <li><span class="order-middle-left">Product Name X 1</span> <span class="order-price">$329 </span></li>
+                                            @php $subtotal = 0; @endphp
+                                            @foreach($carts as $cart)
+                                                <li><span class="order-middle-left">{{ $cart->product->name }} X {{ $cart->quantity }}</span> <span class="order-price">${{ $cart->product->sale_price * $cart->quantity }} </span></li>
+                                                @php 
+                                                    $subtotal += $cart->product->sale_price * $cart->quantity;
+                                                @endphp
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div class="your-order-bottom">
@@ -212,41 +217,13 @@
                                         <div class="your-order-total">
                                             <ul>
                                                 <li class="order-total">Total</li>
-                                                <li>$329</li>
+                                                <li>${{ $subtotal }}</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="payment-method">
                                         <div class="payment-accordion element-mrg">
                                             <div class="panel-group" id="accordion">
-                                                <div class="panel payment-accordion">
-                                                    <div class="panel-heading" id="method-one">
-                                                        <h4 class="panel-title">
-                                                            <a data-bs-toggle="collapse" data-parent="#accordion" href="#method1">
-                                                                Direct bank transfer
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="method1" class="panel-collapse collapse show">
-                                                        <div class="panel-body">
-                                                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel payment-accordion">
-                                                    <div class="panel-heading" id="method-two">
-                                                        <h4 class="panel-title">
-                                                            <a class="collapsed" data-bs-toggle="collapse" data-parent="#accordion" href="#method2">
-                                                                Check payments
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="method2" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="panel payment-accordion">
                                                     <div class="panel-heading" id="method-three">
                                                         <h4 class="panel-title">

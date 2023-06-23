@@ -25,6 +25,7 @@ return new class extends Migration
             $table -> string('street')->nullable();
             $table -> string('house_number')->nullable();
             $table -> string('image')->nullable();
+            $table -> string('otp')->nullable();
             $table -> tinyInteger('status')->default(1);
             $table -> timestamps();
         }

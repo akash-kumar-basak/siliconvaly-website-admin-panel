@@ -92,10 +92,10 @@
                         </div>
                         <div class="pro-details-quality mt-0px">
                             <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
+                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" id="quantity" />
                             </div>
-                            <div class="pro-details-cart btn-hover">
-                                <a href="#">  Add To Cart</a>
+                            <div class="pro-details-cart btn-hover" data-id="{{ $product->id }}" onclick="productToCart(this)">
+                                <a>  Add To Cart</a>
                             </div>
                         </div>
                         <div class="pro-details-wish-com">
@@ -167,6 +167,22 @@
     </div>
     <!-- product details description area end -->
 
-
+    <script>
+function productToCart(element){
+    let productId = $(element).attr("data-id");
+    let quantity = document.getElementById('quantity').value;
+    let route = '/product_to_cart';
+    let data = {ProductId: productId, Quantity: quantity};
+    axios.post(route, data).then
+    (function (response)
+    {
+        //
+    })
+        .catch(function (error)
+        {
+            //
+        });
+}
+</script>
 @endsection
 <!-- PROGRAMMING & CODING BY AKASH KUMAR BASAK -->

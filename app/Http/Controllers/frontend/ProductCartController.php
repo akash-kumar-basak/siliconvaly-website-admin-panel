@@ -4,10 +4,9 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\frontend\CustomerModel;
 use App\Models\frontend\ProductCartModel;
 
-class CustomerController extends Controller
+class ProductCartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,8 +21,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $data['carts'] = ProductCartModel::where('customer_id', auth()->user()->id)->get();
-        return view('frontend.element.customer.create', $data);
+        //
     }
 
     /**
@@ -31,8 +29,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->storeOrUpdate($request);
-        return redirect('/');
+        //
     }
 
     /**
@@ -67,24 +64,17 @@ class CustomerController extends Controller
         //
     }
 
-    public function storeOrUpdate(Request $request, $id = null){
-        try {
-            $product = CustomerModel::updateOrCreate(
+    public function productToCart(Request $request){
+            $productCart = ProductCartModel::updateOrCreate(
                 [
-                    'id'            => $id
+                    'id'                => null
                 ],
                 [
-                    'first_name'    => $request->firstname,
-                    'last_name'     => $request->lastname,
-                    'email'         => $request->email,
-                    'phone'         => $request->phone,
-                    'password'      => $request->password,
-                    'status'        => 1,
+                    'customer_id'       => auth()->user()->id,
+                    'product_id'        => $request->input('ProductId'),
+                    'quantity'          => $request->input('Quantity'),
             ]);
-        }
-        catch (\Throwable $th) {
-            throw $th;
+        return $productId;
     }
-}
-
+    
 }

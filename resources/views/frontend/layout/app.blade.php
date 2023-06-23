@@ -46,6 +46,7 @@
 <script src="{{asset('frontend/js/plugins.min.js')}}"></script>
 <script src="{{asset('frontend/js/main.js')}}"></script>
 <script src="{{asset('frontend/js/bottom-34bba09.js')}}" ></script>
+<script src="{{ asset('frontend/js/axios.min.js') }}"></script>
 </body>
 </html>
 <!-- PROGRAMMING & CODING BY AKASH KUMAR BASAK -->

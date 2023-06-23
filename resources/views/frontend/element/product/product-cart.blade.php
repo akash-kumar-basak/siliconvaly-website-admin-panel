@@ -35,57 +35,29 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @php $subtotal = 0; @endphp
+                                        @foreach($carts as $cart)
                                             <tr>
                                                 <td class="product-thumbnail">
-                                                    <a href="#"><img class="img-responsive" src="assets/images/product-image/2-1.jpg" alt=""></a>
+                                                    <a href="#"><img class="img-responsive" src="{{ asset($cart->product->image_one) }}" alt=""></a>
                                                 </td>
-                                                <td class="product-name"><a href="#">Product Name</a></td>
-                                                <td class="product-price-cart"><span class="amount">$60.00</span></td>
+                                                <td class="product-name"><a href="#">{{ $cart->product->name }}</a></td>
+                                                <td class="product-price-cart"><span class="amount">${{ $cart->product->sale_price }}</span></td>
                                                 <td class="product-quantity">
                                                     <div class="cart-plus-minus"><div class="dec qtybutton">-</div>
-                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="{{ $cart->quantity }}">
                                                     <div class="inc qtybutton">+</div></div>
                                                 </td>
-                                                <td class="product-subtotal">$70.00</td>
+                                                <td class="product-subtotal">${{ $cart->product->sale_price * $cart->quantity }}</td>
                                                 <td class="product-remove">
                                                     <a href="#"><i class="icon-pencil"></i></a>
                                                     <a href="#"><i class="icon-close"></i></a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="product-thumbnail">
-                                                    <a href="#"><img class="img-responsive" src="assets/images/product-image/2-2.jpg" alt=""></a>
-                                                </td>
-                                                <td class="product-name"><a href="#">Product Name</a></td>
-                                                <td class="product-price-cart"><span class="amount">$50.00</span></td>
-                                                <td class="product-quantity">
-                                                    <div class="cart-plus-minus"><div class="dec qtybutton">-</div>
-                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                                    <div class="inc qtybutton">+</div></div>
-                                                </td>
-                                                <td class="product-subtotal">$80.00</td>
-                                                <td class="product-remove">
-                                                    <a href="#"><i class="icon-pencil"></i></a>
-                                                    <a href="#"><i class="icon-close"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="product-thumbnail">
-                                                    <a href="#"><img class="img-responsive" src="assets/images/product-image/2-3.jpg" alt=""></a>
-                                                </td>
-                                                <td class="product-name"><a href="#">Product Name</a></td>
-                                                <td class="product-price-cart"><span class="amount">$70.00</span></td>
-                                                <td class="product-quantity">
-                                                    <div class="cart-plus-minus"><div class="dec qtybutton">-</div>
-                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                                    <div class="inc qtybutton">+</div></div>
-                                                </td>
-                                                <td class="product-subtotal">$90.00</td>
-                                                <td class="product-remove">
-                                                    <a href="#"><i class="icon-pencil"></i></a>
-                                                    <a href="#"><i class="icon-close"></i></a>
-                                                </td>
-                                            </tr>
+                                            @php 
+                                                 $subtotal += $cart->product->sale_price * $cart->quantity;
+                                            @endphp
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -166,7 +138,7 @@
                                         <div class="title-wrap">
                                             <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
                                         </div>
-                                        <h5>Total products <span>$260.00</span></h5>
+                                        <h5>Total products <span>$ {{ $subtotal }}</span></h5>
                                         <div class="total-shipping">
                                             <h5>Total shipping</h5>
                                             <ul>
@@ -174,7 +146,7 @@
                                                 <li><input type="checkbox"> Express <span>$30.00</span></li>
                                             </ul>
                                         </div>
-                                        <h4 class="grand-totall-title">Grand Total <span>$260.00</span></h4>
+                                        <h4 class="grand-totall-title">Grand Total <span>$ {{ $subtotal }}</span></h4>
                                         <a href="/product_checkout">Proceed to Checkout</a>
                                     </div>
                                 </div>

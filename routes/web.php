@@ -8,6 +8,9 @@ use App\Http\Controllers\backend\CompanySettingsConrtoller;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\frontend\CustomerController;
+use App\Http\Controllers\frontend\ProductCartController;
+use App\Http\Controllers\frontend\OrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +37,17 @@ Route::resource('product', ProductController::class);
 
 //---------------frontend------------------------
 Route::resource('customer', CustomerController::class);
+Route::resource('product_cart', ProductCartController::class);
+Route::resource('order', OrderController::class);
 Route::get('/', [homeController::class, 'home']);
 Route::get('/product/{category}/{id}', [homeController::class, 'productDetails']);
 Route::get('/product_cart', [homeController::class, 'productCart']);
 Route::get('/product_checkout', [homeController::class, 'productCheckout']);
+Route::post('/product_to_cart', [ProductCartController::class, 'productToCart']);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

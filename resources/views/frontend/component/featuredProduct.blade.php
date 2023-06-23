@@ -48,7 +48,7 @@
                         </div>
                         <div class="add-to-link">
                             <ul>
-                                <li class="cart"><a class="cart-btn" href="#">ADD TO CART </a></li>
+                                <li class="cart" data-id="{{ $products->id }}" onclick="productToCart(this)"><a class="cart-btn">ADD TO CART </a></li>
                                 <li>
                                     <a href="wishlist.html"><i class="icon-heart"></i></a>
                                 </li>
@@ -69,5 +69,22 @@
         </div>
     </div>
 </div>
+<script>
+function productToCart(element){
+    let productId = $(element).attr("data-id");
+    let quantity = 1;
+    let route = '/product_to_cart';
+    let data = {ProductId: productId, Quantity: quantity};
+    axios.post(route, data).then
+    (function (response)
+    {
+        alert(response.data);
+    })
+        .catch(function (error)
+        {
+            //
+        });
+}
+</script>
 <!-- Feature Area End -->
 
