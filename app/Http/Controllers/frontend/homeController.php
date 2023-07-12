@@ -26,12 +26,12 @@ class homeController extends Controller
     }
 
     public function productCart(){
-        $data['carts'] = ProductCartModel::where('customer_id', auth()->user()->id)->get();
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
         return view('frontend.element.product.product-cart', $data);
     }
 
     public function productCheckout(){
-        $data['carts'] = ProductCartModel::where('customer_id', auth()->user()->id)->get();
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
         return view('frontend.element.product.product-checkout', $data);
     }
 

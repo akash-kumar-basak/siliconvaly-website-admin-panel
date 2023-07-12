@@ -23,7 +23,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $data['carts'] = ProductCartModel::where('customer_id', auth()->user()->id)->get();
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
         return view('frontend.element.customer.create', $data);
     }
 
