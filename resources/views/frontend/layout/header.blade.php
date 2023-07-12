@@ -402,7 +402,7 @@
                     </form>
                     @else
                     <a href="/customer_login" class="user"><i class="icon-user"></i></a>
-                    @endif
+                    @endif &nbsp;&nbsp;
                     <a href="wishlist.html" data-number="3"><i class="icon-heart"></i></a>
                     <a href="cart.html" data-number="3"><i class="icon-bag"></i></a>
                 </div>
