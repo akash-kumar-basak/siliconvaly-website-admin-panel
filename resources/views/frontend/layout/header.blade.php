@@ -79,7 +79,14 @@
                         <!--Cart info Start -->
                         <div class="header-tools d-flex">
                             <div class="cart-info d-flex align-self-center">
-                                <a href="#offcanvas-wishlist" class="user offcanvas-toggle" data-number="3"><i class="icon-user"></i></a>
+                            @if(optional(auth()->user())->id)
+                                <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
+                                </form>
+                            @else
+                                <a href="/customer_login" class="user"><i class="icon-user"></i></a>
+                            @endif
                                 <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i class="icon-heart"></i></a>
                                 <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="{{ count($carts) }}"><i class="icon-bag"></i><span>৳0.00</span></a>
                             </div>
@@ -388,7 +395,14 @@
         <div class="offcanvas-buttons mt-30px">
             <div class="header-tools d-flex">
                 <div class="cart-info d-flex align-self-center">
-                    <a href="{{ route('customer.create') }}" class="user"><i class="icon-user"></i></a>
+                    @if(optional(auth()->user())->id)
+                    <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <button class="btn btn-danger" type="submit">Logout</button>
+                    </form>
+                    @else
+                    <a href="/customer_login" class="user"><i class="icon-user"></i></a>
+                    @endif
                     <a href="wishlist.html" data-number="3"><i class="icon-heart"></i></a>
                     <a href="cart.html" data-number="3"><i class="icon-bag"></i></a>
                 </div>

@@ -58,7 +58,7 @@
                         </li> 
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <a class="nav-link menu-link" href="{{ route('order.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-record-circle-line"></i> <span data-key="t-dashboards">Order</span>
                             </a>
                         </li> 

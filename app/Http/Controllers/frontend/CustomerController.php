@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\frontend\CustomerModel;
 use App\Models\frontend\ProductCartModel;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -78,13 +79,18 @@ class CustomerController extends Controller
                     'last_name'     => $request->lastname,
                     'email'         => $request->email,
                     'phone'         => $request->phone,
-                    'password'      => $request->password,
+                    'password'      => Hash::make($request->password),
                     'status'        => 1,
             ]);
         }
         catch (\Throwable $th) {
             throw $th;
     }
+}
+
+public function customerLogin(){
+    $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+    return view('frontend.element.customer.login', $data);
 }
 
 }

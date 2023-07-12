@@ -18,6 +18,8 @@
         </div>
         <div class="checkout-area mt-60px mb-40px">
                 <div class="container">
+                    <form action="{{ route('order.store') }}" method="POST">
+                        @csrf
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="billing-info-wrap">
@@ -202,6 +204,8 @@
                                             @php $subtotal = 0; @endphp
                                             @foreach($carts as $cart)
                                                 <li><span class="order-middle-left">{{ $cart->product->name }} X {{ $cart->quantity }}</span> <span class="order-price">${{ $cart->product->sale_price * $cart->quantity }} </span></li>
+                                                <input type="hidden" name="product_id[]" value="{{ $cart->product->id }}">
+                                                <input type="hidden" name="quantity[]" value="{{ $cart->quantity }}">
                                                 @php 
                                                     $subtotal += $cart->product->sale_price * $cart->quantity;
                                                 @endphp
@@ -242,12 +246,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="Place-order mt-25">
-                                    <a class="btn-hover" href="#">Place Order</a>
-                                </div>
+                                <button  type="submit" class="Place-order mt-25">
+                                    <a class="btn-hover">Place Order</a>
+</button>
                             </div>
                         </div>
                     </div>
+</form>
                 </div>
             </div>
 @endsection

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\frontend\OrderModel;
+use App\Models\frontend\OrderProductModel;
+use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
@@ -12,7 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $data['orders'] = OrderModel::all();
+        return view('backend.element.order.index', $data);
     }
 
     /**
@@ -28,15 +32,29 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $order = ProductCartModel::updateOrCreate(
+        $order = OrderModel::updateOrCreate(
             [
                 'id'                => null
             ],
             [
+                'uuid'              => Str::uuid(),
                 'customer_id'       => auth()->user()->id,
-                'product_id'        => $request->input('ProductId'),
-                'quantity'          => $request->input('Quantity'),
+                'time'              => now() ,
+                'status'            => 1,
         ]);
+
+        foreach($request->product_id as $key => $value){
+        $orderProducts = OrderProductModel::updateOrCreate(
+            [
+                'id'                => null
+            ],
+            [
+                'order_id'          => $order->id,
+                'product_id'       => $request->product_id[$key],
+                'quantity'          => $request->quantity[$key],
+        ]);
+    }
+        return redirect('/');
     }
 
     /**
