@@ -206,6 +206,7 @@
                                                 <li><span class="order-middle-left">{{ $cart->product->name }} X {{ $cart->quantity }}</span> <span class="order-price">${{ $cart->product->sale_price * $cart->quantity }} </span></li>
                                                 <input type="hidden" name="product_id[]" value="{{ $cart->product->id }}">
                                                 <input type="hidden" name="quantity[]" value="{{ $cart->quantity }}">
+                                                <input type="hidden" name="cart_id[]" value="{{ $cart->id }}">
                                                 @php 
                                                     $subtotal += $cart->product->sale_price * $cart->quantity;
                                                 @endphp

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\frontend\OrderModel;
 use App\Models\frontend\OrderProductModel;
+use App\Models\frontend\ProductCartModel;
 use Illuminate\Support\Str;
 
 class OrderController extends Controller
@@ -50,9 +51,12 @@ class OrderController extends Controller
             ],
             [
                 'order_id'          => $order->id,
-                'product_id'       => $request->product_id[$key],
+                'product_id'        => $request->product_id[$key],
                 'quantity'          => $request->quantity[$key],
         ]);
+
+        $cart = ProductCartModel::whereIn('id', $request->cart_id)->delete();
+        
     }
         return redirect('/');
     }
