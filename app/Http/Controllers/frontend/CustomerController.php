@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\frontend\CustomerModel;
 use App\Models\frontend\ProductCartModel;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CustomerAccountVerificationMail;
 
 class CustomerController extends Controller
 {
@@ -32,6 +34,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        Mail::to('akash.smartsoftware@gmail.com')->send(new CustomerAccountVerificationMail());
         $this->storeOrUpdate($request);
         return redirect('/');
     }
