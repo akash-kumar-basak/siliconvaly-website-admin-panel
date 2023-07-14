@@ -150,12 +150,12 @@
                 <div class="tab-content description-review-bottom">
                     <div id="des-details2" class="tab-pane active">
                         <div class="product-anotherinfo-wrapper">
-                        {{ $product->short_description }}
+                        {!! $product->short_description !!}
                         </div>
                     </div>
                     <div id="des-details1" class="tab-pane">
                         <div class="product-description-wrapper">
-                            <p>{{ $product->long_description }}</p>
+                            <p>{!! $product->long_description !!}</p>
                         </div>
                     </div>
                     <div id="des-details3" class="tab-pane">   

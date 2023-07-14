@@ -50,7 +50,7 @@
                                                         <div class="col-lg-12 col-md-12">
                                                             <div class="billing-info">
                                                                 <label>Password</label>
-                                                                <input type="text" name="password" />
+                                                                <input type="password" name="password" />
                                                             </div>
                                                         </div>
                                                     </div>

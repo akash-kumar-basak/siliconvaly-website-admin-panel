@@ -1,5 +1,28 @@
 <!----------------------------------- Header Section Start From Here----------------------------------------- -->
-<header class="header-wrapper">
+<style>
+    .customer_text_icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #f0f0f0;
+      border-radius: 50%;
+      border: 1px solid #146CDA;
+      color: #146CDA;
+      text-align: center;
+      font-size: 20px;
+      line-height: 37px;
+      cursor: pointer;
+    }
+    
+    .customer_text_icon::first-letter {
+      font-weight: bold;
+    }
+    .customer_text_icon:hover {
+        color: #32BEF3;
+        border: 1px solid #32BEF3;
+    }
+
+  </style>
     <!-- Header Nav Start -->
     <div class="header-nav">
         <div class="container">
@@ -82,12 +105,12 @@
                             @if(optional(auth()->user())->id)
                                 <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
+                            <div class="customer_text_icon">{{ substr(auth()->user()->first_name, 0, 1) }}</div>
                                 </form>
                             @else
                                 <a href="/customer_login" class="user"><i class="icon-user"></i></a>
-                            @endif &nbsp;&nbsp;
-                                <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i class="icon-heart"></i></a>
+                            @endif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="0"><i class="icon-heart"></i></a>
                                 <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="{{ count($carts) }}"><i class="icon-bag"></i><span>৳0.00</span></a>
                             </div>
                         </div>
@@ -398,13 +421,14 @@
                     @if(optional(auth()->user())->id)
                     <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <button class="btn btn-danger" type="submit">Logout</button>
+                    {{ optional(auth()->user())->first_name }} {{ optional(auth()->user())->last_name }} &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-danger" type="submit"><i class="icon-logout"></i></button>
                     </form>
                     @else
                     <a href="/customer_login" class="user"><i class="icon-user"></i></a>
                     @endif &nbsp;&nbsp;
-                    <a href="wishlist.html" data-number="3"><i class="icon-heart"></i></a>
-                    <a href="cart.html" data-number="3"><i class="icon-bag"></i></a>
+                    <!-- <a href="wishlist.html" data-number="3"><i class="icon-heart"></i></a> -->
+                    <!-- <a href="cart.html" data-number="3"><i class="icon-bag"></i></a> -->
                 </div>
             </div>
         </div>
