@@ -22,6 +22,41 @@
         border: 1px solid #32BEF3;
     }
 
+.user_tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.user_tooltip .user_tooltip_content {
+  visibility: hidden;
+  width: 120px;
+  background-color: #F3F3F3;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.user_tooltip .user_tooltip_content::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #146CDA transparent;
+}
+
+.user_tooltip:hover .user_tooltip_content {
+  visibility: visible;
+}
+
   </style>
     <!-- Header Nav Start -->
     <div class="header-nav">
@@ -105,7 +140,16 @@
                             @if(optional(auth()->user())->id)
                                 <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="customer_text_icon">{{ substr(auth()->user()->first_name, 0, 1) }}</div>
+                            <div class="customer_text_icon user_tooltip">
+                                {{ substr(auth()->user()->first_name, 0, 1) }}
+                                <span class="user_tooltip_content">
+                                    <ul>
+                                        <li><button class="btn btn-primary">Profile</button></li>
+                                        <li><button class="btn btn-primary">Orders</button></li>
+                                        <li><button type="submit" class="btn btn-danger">Signout</button></li>
+                                    </ul>
+                                </span>
+                            </div>
                                 </form>
                             @else
                                 <a href="/customer_login" class="user"><i class="icon-user"></i></a>
