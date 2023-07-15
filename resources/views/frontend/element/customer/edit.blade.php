@@ -66,7 +66,7 @@
         <label id="last_name"><strong>{{ $customer->last_name }}</strong></label>
     </div>
 </div>
-                                                        <div class="col-lg-12 col-md-12">
+                                                        <div class="col-lg-6 col-md-6">
                                                             <div class="billing-info">
                                                                 <label>Email Address</label><br>
                                                                 <label id="email"><strong>{{ $customer->email }}</strong></label>
