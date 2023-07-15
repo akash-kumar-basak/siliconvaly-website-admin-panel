@@ -24,10 +24,10 @@
                                                 <thead class="table-light">
                                                     <tr>
                                                         <th scope="col">SI</th>
-                                                        <th scope="col">UUID</th>
                                                         <th scope="col">Customer</th>
-                                                        <th scope="col">Product with quantity</th>
-                                                        <th scope="col">Total Cost</th>
+                                                        <th scope="col">Product</th>
+                                                        <th scope="col">Total Cost(BDT)</th>
+                                                        <th scope="col">Shipping Address</th>
                                                         <th scope="col">Status</th>
                                                         <th scope="col" style="width: 150px;">Action</th>
                                                     </tr>
@@ -36,10 +36,31 @@
                                                     @foreach ($orders as $order)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $order->uuid }}</td>
-                                                        <td>{{ $order->customer_id }}</td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>
+                                                            <i class="mdi mdi-account"></i> <strong>{{ $order->customer->first_name }} {{ $order->customer->last_name }}</strong> <br>
+                                                            <i class="mdi mdi-phone"></i> <strong>{{ $order->customer->phone }}</strong> <br>
+                                                            <i class="mdi mdi-image-filter-center-focus-strong"></i> <strong>{{ $order->uuid }}</strong>
+                                                        </td>
+                                                        <td>
+                                                            @foreach(App\Models\frontend\OrderProductModel::where('order_id', $order->id)->get() as $product)
+                                                                <img src="{{ asset(App\Models\backend\ProductModel::where('id', $product->product_id )->value('image_one')) }}" with="40px" height="40px"> {{ App\Models\backend\ProductModel::where('id', $product->product_id )->value('name') }} &#10006; {{ $product->quantity }} 
+                                                            @if (!$loop->last)
+                                                                <hr>
+                                                             @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td>
+                                                            @php
+                                                                $subtotal = 0;
+                                                            @endphp
+                                                        @foreach(App\Models\frontend\OrderProductModel::where('order_id', $order->id)->get() as $product)
+                                                            @php
+                                                                $subtotal += App\Models\backend\ProductModel::where('id', $product->product_id )->value('sale_price');
+                                                            @endphp
+                                                        @endforeach
+                                                        <strong>{{ $subtotal }}</strong>
+                                                        </td>
+                                                        <td>{{ $order->customer->house_number }}, {{ $order->customer->street }}, {{ $order->customer->post_code }}, {{ $order->customer->country }}</td>
                                                         <td><div class="form-check form-switch form-switch-info mb-3">
                                                             <input class="form-check-input" type="checkbox" role="switch" name="status" checked>
                                                         </div></td>

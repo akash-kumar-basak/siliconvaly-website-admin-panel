@@ -16,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $data['orders'] = OrderModel::all();
+        $data['orders'] = OrderModel::with('customer')->get();
         return view('backend.element.order.index', $data);
     }
 
