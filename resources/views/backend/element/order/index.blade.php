@@ -60,7 +60,9 @@
                                                         @endforeach
                                                         <strong>{{ $subtotal }}</strong>
                                                         </td>
-                                                        <td>{{ $order->customer->house_number }}, {{ $order->customer->street }}, {{ $order->customer->post_code }}, {{ $order->customer->country }}</td>
+                                                        <td>
+                                                            {{ $order->customer->house_number }}, {{ $order->customer->street }}, {{ $order->customer->post_code }}, {{ $order->customer->country }}
+                                                        </td>
                                                         <td><div class="form-check form-switch form-switch-info mb-3">
                                                             <input class="form-check-input" type="checkbox" role="switch" name="status" checked>
                                                         </div></td>

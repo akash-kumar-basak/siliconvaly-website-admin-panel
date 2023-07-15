@@ -52,7 +52,9 @@ class CustomerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['customer'] = CustomerModel::find($id);
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+        return view('frontend.element.customer.edit', $data);
     }
 
     /**
@@ -60,7 +62,23 @@ class CustomerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $customer = CustomerModel::updateOrCreate(
+            [
+                'id'            => $id
+            ],
+            [
+                'first_name'    => $request->first_name,
+                'last_name'     => $request->last_name,
+                'email'         => $request->email,
+                'phone'         => $request->phone,
+                'password'      => Hash::make($request->password),
+                'country'       => $request->country,
+                'district'      => $request->district,
+                'post_code'     => $request->post_code,
+                'street'        => $request->street,
+                'house_number'  => $request->house_number,
+        ]);
+        return redirect()->back();
     }
 
     /**

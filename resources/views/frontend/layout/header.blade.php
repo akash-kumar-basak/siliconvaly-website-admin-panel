@@ -138,19 +138,21 @@
                         <div class="header-tools d-flex">
                             <div class="cart-info d-flex align-self-center">
                             @if(optional(auth()->user())->id)
-                                <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
+                                
                             @csrf
                             <div class="customer_text_icon user_tooltip">
                                 {{ substr(auth()->user()->first_name, 0, 1) }}
                                 <span class="user_tooltip_content">
                                     <ul>
-                                        <li><button class="btn btn-primary">Profile</button></li>
+                                        <li><a href="{{ route('customer.edit', auth()->user()->id) }}" ><button class="btn btn-primary">Profile</button></a></li>
                                         <li><button class="btn btn-primary">Orders</button></li>
+                                        <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
                                         <li><button type="submit" class="btn btn-danger">Signout</button></li>
+                                        </form>
                                     </ul>
                                 </span>
                             </div>
-                                </form>
+                                
                             @else
                                 <a href="/customer_login" class="user"><i class="icon-user"></i></a>
                             @endif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
