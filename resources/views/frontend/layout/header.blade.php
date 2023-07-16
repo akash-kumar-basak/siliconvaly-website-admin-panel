@@ -232,7 +232,34 @@
             <div class="col-auto">
                 <div class="header-tools justify-content-end">
                     <div class="cart-info d-flex align-self-center">
-                        <a href="compare.html" class="shuffle d-xs-none" data-number="3"><i class="icon-shuffle"></i></a>
+                    @if(optional(auth()->user())->id)
+                               
+                               @csrf
+                               <div class="customer_text_icon user_tooltip">
+                                   {{ substr(auth()->user()->first_name, 0, 1) }}
+                                   <span class="user_tooltip_content">
+                                       <ul>
+                                           <li><button class="btn btn-primary" onclick="customerProfile()"><i class="icon-user"></i> My Profile</button></li>
+                                           <li><button class="btn btn-primary" onclick="customerOrder()"><i class="icon-list"></i> Orders</button></li>
+                                           <li><form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
+                                               @csrf
+                                           <button type="submit" class="btn btn-danger"><i class="icon-logout"></i> Signout</button>
+                                           </form></li>
+                                       </ul>
+                                   </span>
+                               </div>
+                               <script>
+       function customerProfile(){
+           window.location = '{{ route('customer.edit', auth()->user()->id) }}';
+       }
+       function customerOrder(){
+           window.location = '{{ route('customer_order') }}';
+       }
+    </script>
+                                   
+                               @else
+                                   <a href="/customer_login" class="user"><i class="icon-user"></i></a>
+                               @endif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="#offcanvas-wishlist" class="heart offcanvas-toggle d-xs-none" data-number="3"><i class="icon-heart"></i></a>
                         <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i class="icon-bag"></i><span>$20.00</span></a>
                     </div>
