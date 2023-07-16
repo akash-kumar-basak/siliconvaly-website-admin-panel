@@ -114,4 +114,9 @@ public function customerLogin(){
     return view('frontend.element.customer.login', $data);
 }
 
+public function customerOrder(){
+    $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+    return view('frontend.element.customer.order', $data);
+}
+
 }

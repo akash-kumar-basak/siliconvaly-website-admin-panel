@@ -37,6 +37,7 @@ Route::resource('product', ProductController::class);
 
 //---------------frontend------------------------
 Route::get('/customer_login', [CustomerController::class, 'customerLogin']);
+Route::get('/customer_order', [CustomerController::class, 'customerOrder'])->name('customer_order');
 Route::resource('customer', CustomerController::class);
 Route::resource('product_cart', ProductCartController::class);
 Route::resource('order', OrderController::class);

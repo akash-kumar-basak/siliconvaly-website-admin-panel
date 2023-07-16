@@ -29,7 +29,7 @@
 
 .user_tooltip .user_tooltip_content {
   visibility: hidden;
-  width: 120px;
+  width: 150px;
   background-color: #F3F3F3;
   color: #fff;
   text-align: center;
@@ -39,7 +39,7 @@
   z-index: 1;
   top: 150%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -75px;
 }
 
 .user_tooltip .user_tooltip_content::after {
@@ -144,14 +144,24 @@
                                 {{ substr(auth()->user()->first_name, 0, 1) }}
                                 <span class="user_tooltip_content">
                                     <ul>
-                                        <li><a href="{{ route('customer.edit', auth()->user()->id) }}" ><button class="btn btn-primary">Profile</button></a></li>
-                                        <li><button class="btn btn-primary">Orders</button></li>
-                                        <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
-                                        <li><button type="submit" class="btn btn-danger">Signout</button></li>
-                                        </form>
+                                        <li><button class="btn btn-primary" onclick="customerProfile()"><i class="icon-user"></i> My Profile</button></li>
+                                        <li><button class="btn btn-primary" onclick="customerOrder()"><i class="icon-list"></i> Orders</button></li>
+                                        <li><form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                        <button type="submit" class="btn btn-danger"><i class="icon-logout"></i> Signout</button>
+                                        </form></li>
                                     </ul>
                                 </span>
                             </div>
+                            <script>
+    function customerProfile(){
+        window.location = '{{ route('customer.edit', auth()->user()->id) }}';
+    }
+
+    function customerOrder(){
+        window.location = '{{ route('customer_order') }}';
+    }
+</script>
                                 
                             @else
                                 <a href="/customer_login" class="user"><i class="icon-user"></i></a>
