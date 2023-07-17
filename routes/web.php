@@ -28,6 +28,9 @@ use App\Http\Controllers\frontend\OrderController;
 Route::get('/dashboard', function () {
     return view('backend.element.dashboard.dashboard');
 })->name('dashboard');
+Route::get('/admin_login', function(){
+    return view('backend.element.auth.login');
+});
 Route::get('/category_read/{id}', [Category2Controller::class, 'category2Read']);
 Route::resource('companySettings', CompanySettingsConrtoller::class);
 Route::resource('category1', Category1Controller::class);

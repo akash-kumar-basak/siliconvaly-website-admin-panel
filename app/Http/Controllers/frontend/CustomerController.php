@@ -9,6 +9,7 @@ use App\Models\frontend\ProductCartModel;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CustomerAccountVerificationMail;
+use App\Models\frontend\OrderModel;
 
 class CustomerController extends Controller
 {
@@ -115,6 +116,7 @@ public function customerLogin(){
 }
 
 public function customerOrder(){
+    $data['orders'] = OrderModel::where('customer_id', auth()->user()->id)->with('customer')->get();
     $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
     return view('frontend.element.customer.order', $data);
 }
