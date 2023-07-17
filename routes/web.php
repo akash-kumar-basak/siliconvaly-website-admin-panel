@@ -31,6 +31,9 @@ Route::get('/dashboard', function () {
 Route::get('/admin_login', function(){
     return view('backend.element.auth.login');
 });
+Route::get('/admin_logout', function(){
+    return view('backend.element.auth.logout');
+});
 Route::get('/category_read/{id}', [Category2Controller::class, 'category2Read']);
 Route::resource('companySettings', CompanySettingsConrtoller::class);
 Route::resource('category1', Category1Controller::class);
