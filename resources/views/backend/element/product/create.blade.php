@@ -1,5 +1,13 @@
 @extends('backend.layout.app')
 @section('title', 'Product Upload')
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
 @section('content')
 <div class="main-content">
             <div class="page-content">
@@ -112,7 +120,7 @@
                                                             <div class="mb-3">
                                                                 <div>
                                                                     <label class="form-label" for="gen-info-description-input">Short Description</label>
-                                                                    <textarea class="form-control" placeholder="Enter Short Description" id="gen-info-description-input" name="shortDescription" rows="2"></textarea>
+                                                                    <textarea class="form-control summernote" placeholder="Enter Short Description" name="shortDescription" rows="2"></textarea>
                                                                     <div class="invalid-feedback">Please enter a short description</div>
                                                                 </div>
                                                             </div>
@@ -123,7 +131,7 @@
                                                             <div class="mb-3">
                                                                 <div>
                                                                     <label class="form-label" for="gen-info-description-input">Long Description</label>
-                                                                    <textarea class="form-control" placeholder="Enter Long Description" id="gen-info-description-input" name="longDescription" rows="6"></textarea>
+                                                                    <textarea class="form-control summernote" placeholder="Enter Long Description" name="longDescription" rows="6"></textarea>
                                                                     <div class="invalid-feedback">Please enter a long description</div>
                                                                 </div>
                                                             </div>
@@ -314,4 +322,14 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('.summernote').summernote(
+                {
+  height: 250,
+  focus: true
+}
+            );
+        });
+    </script>
 @endsection

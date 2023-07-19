@@ -28,6 +28,9 @@
     <!-- custom Css-->
     <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
 
+    <link href="{{ asset('assets/css/quill.core.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/quill.snow.css') }}" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -108,7 +111,8 @@
     <script src="{{ asset('assets/js/pages/form-file-upload.init.js') }}"></script>
     <script src="{{ asset('assets/js/pages/form-wizard.init.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
-
+    <script src="{{ asset('assets/js/quill.min.js') }}"></script>
+    <script src="{{ asset('assets/js/demo.quilljs.js') }}"></script>
     <script src="{{ asset('assets/js/axios.min.js') }}"></script>
 
 </body>
