@@ -35,7 +35,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        // Mail::to('akash.smartsoftware@gmail.com')->send(new CustomerAccountVerificationMail());
+        Mail::to('akash.smartsoftware@gmail.com')->send(new CustomerAccountVerificationMail());
         $this->storeOrUpdate($request);
         return redirect('/');
     }

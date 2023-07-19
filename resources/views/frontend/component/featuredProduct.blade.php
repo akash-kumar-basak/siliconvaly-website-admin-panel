@@ -40,9 +40,11 @@
                             @php  @endphp
                             <div class="pricing-meta">
                                 <ul>
-                                    <li class="old-price @php if($products->discount<1){echo 'not-cut';} @endphp ">৳{{$products->regular_price}}</li>
-                                    <li class="current-price">৳@php if($products->discount>=1){echo $products->sale_price;}@endphp</li>
-                                    <li class="discount-price">@php if($products->discount>=1){echo '-'.$products->discount.'%';}@endphp</li>
+                                    <li class="old-price">৳{{$products->regular_price}}</li>
+                                    <li class="current-price">৳{{$products->sale_price}}</li>
+                                    @if($products->discount)
+                                    <li class="discount-price">{{$products->discount}}%</li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
