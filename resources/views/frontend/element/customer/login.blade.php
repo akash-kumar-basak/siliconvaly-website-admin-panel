@@ -31,7 +31,7 @@
                                         <div class="panel-heading my-account-title">
                                             <h3 class="panel-title"><span>1 .</span> <a data-bs-toggle="collapse" data-parent="#faq" href="#my-account-1">Account information for signin </a></h3>
                                         </div>
-                                        <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ route('customer_login') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div id="my-account-1" class="panel-collapse collapse show">
                                             <div class="panel-body">

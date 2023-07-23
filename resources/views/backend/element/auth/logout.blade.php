@@ -66,7 +66,7 @@
                                     <h5>You are Logged Out</h5>
                                     <p class="text-muted">Thank you for using <span class="fw-semibold">Siliconvaly</span> admin template</p>
                                     <div class="mt-4">
-                                        <a href="auth-signin-basic.html" class="btn btn-success w-100">Sign In</a>
+                                        <a href="{{ route('admin_login') }}" class="btn btn-success w-100">Sign In</a>
                                     </div>
                                 </div>
                             </div>

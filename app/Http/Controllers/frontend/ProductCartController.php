@@ -70,7 +70,7 @@ class ProductCartController extends Controller
                     'id'                => null
                 ],
                 [
-                    'customer_id'       => auth()->user()->id,
+                    'customer_id'       => auth()->guard('customer')->user()->id,
                     'product_id'        => $request->input('ProductId'),
                     'quantity'          => $request->input('Quantity'),
             ]);

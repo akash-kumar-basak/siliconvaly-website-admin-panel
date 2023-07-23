@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class CustomerModel extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
     protected $table = 'customers';
     protected $guarded = [];
 }

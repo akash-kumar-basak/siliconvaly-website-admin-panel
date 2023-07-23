@@ -15,7 +15,7 @@ class homeController extends Controller
         $data['product'] = ProductModel::all();
         $data['category1s'] = Category1Model::all();
         $data['category2s'] = Category2Model::all();
-        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
         return view('frontend.element.home.homepage', $data);
     }
 
@@ -26,12 +26,12 @@ class homeController extends Controller
     }
 
     public function productCart(){
-        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
         return view('frontend.element.product.product-cart', $data);
     }
 
     public function productCheckout(){
-        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
         return view('frontend.element.product.product-checkout', $data);
     }
 

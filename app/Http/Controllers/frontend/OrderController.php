@@ -39,7 +39,7 @@ class OrderController extends Controller
             ],
             [
                 'uuid'              => Str::uuid(),
-                'customer_id'       => auth()->user()->id,
+                'customer_id'       => auth()->guard('customer')->user()->id,
                 'time'              => now() ,
                 'status'            => 1,
         ]);

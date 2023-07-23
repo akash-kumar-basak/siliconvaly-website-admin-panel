@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'table' => 'customers',
+    // 'table' => 'customers',
 
     /*
     |--------------------------------------------------------------------------
@@ -53,6 +53,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customers',
+        ],
     ],
 
     /*
@@ -76,6 +80,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\frontend\CustomerModel::class,
         ],
 
         // 'users' => [

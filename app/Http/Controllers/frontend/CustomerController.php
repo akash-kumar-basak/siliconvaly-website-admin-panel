@@ -10,9 +10,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CustomerAccountVerificationMail;
 use App\Models\frontend\OrderModel;
+use Illuminate\Support\Facades\Auth;
+use App\Traits\FileSaver;
+use Intervention\Image\Facades\Image;
 
 class CustomerController extends Controller
 {
+    use FileSaver;
+
     /**
      * Display a listing of the resource.
      */
@@ -26,7 +31,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
         return view('frontend.element.customer.create', $data);
     }
 
@@ -35,7 +40,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        Mail::to('akash.smartsoftware@gmail.com')->send(new CustomerAccountVerificationMail());
+        //Mail::to('akash.smartsoftware@gmail.com')->send(new CustomerAccountVerificationMail());
         $this->storeOrUpdate($request);
         return redirect('/');
     }
@@ -54,7 +59,7 @@ class CustomerController extends Controller
     public function edit(string $id)
     {
         $data['customer'] = CustomerModel::find($id);
-        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
         return view('frontend.element.customer.edit', $data);
     }
 
@@ -79,6 +84,9 @@ class CustomerController extends Controller
                 'street'        => $request->street,
                 'house_number'  => $request->house_number,
         ]);
+        if($request->image){
+            $this->upload_file($request->image, $customer, 'image', 'customer/image');
+        }
         return redirect()->back();
     }
 
@@ -111,14 +119,25 @@ class CustomerController extends Controller
 }
 
 public function customerLogin(){
-    $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+    $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
     return view('frontend.element.customer.login', $data);
 }
 
 public function customerOrder(){
-    $data['orders'] = OrderModel::where('customer_id', auth()->user()->id)->with('customer')->get();
-    $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->user())->id)->get();
+    $data['orders'] = OrderModel::where('customer_id', auth()->guard('customer')->user()->id)->with('customer')->get();
+    $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
     return view('frontend.element.customer.order', $data);
+}
+
+public function userLogout(){
+    Auth::logout();
+    return redirect()
+        ->route('admin_logout');
+}
+public function customerLogout(){
+    Auth::guard('customer')
+        ->logout();
+    return redirect('/');
 }
 
 }

@@ -137,29 +137,31 @@
                         <!--Cart info Start -->
                         <div class="header-tools d-flex">
                             <div class="cart-info d-flex align-self-center">
-                            @if(optional(auth()->user())->id)
+                            @if(optional(auth()->guard('customer')->user())->id)
                                 
                             @csrf
                             <div class="customer_text_icon user_tooltip">
-                                {{ substr(auth()->user()->first_name, 0, 1) }}
+                                {{ substr(auth()->guard('customer')->user()->first_name, 0, 1) }}
                                 <span class="user_tooltip_content">
                                     <ul>
                                         <li><button class="btn btn-primary" onclick="customerProfile()"><i class="icon-user"></i> My Profile</button></li>
                                         <li><button class="btn btn-primary" onclick="customerOrder()"><i class="icon-list"></i> Orders</button></li>
-                                        <li><form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                        <button type="submit" class="btn btn-danger"><i class="icon-logout"></i> Signout</button>
-                                        </form></li>
+                                        <li>
+                                        <button type="button" class="btn btn-danger" onclick="customerLogout()"><i class="icon-logout"></i> Signout</button>
+                                        </li>
                                     </ul>
                                 </span>
                             </div>
                             <script>
     function customerProfile(){
-        window.location = '{{ route('customer.edit', auth()->user()->id) }}';
+        window.location = '{{ route('customer.edit', auth()->guard('customer')->user()->id) }}';
     }
 
     function customerOrder(){
         window.location = '{{ route('customer_order') }}';
+    }
+    function customerLogout(){
+        window.location = '{{ route('customerLogout') }}';
     }
 </script>
                                 
@@ -232,29 +234,29 @@
             <div class="col-auto">
                 <div class="header-tools justify-content-end">
                     <div class="cart-info d-flex align-self-center">
-                    @if(optional(auth()->user())->id)
+                    @if(optional(auth()->guard('customer')->user())->id)
                                
                                @csrf
                                <div class="customer_text_icon user_tooltip">
-                                   {{ substr(auth()->user()->first_name, 0, 1) }}
+                                   {{ substr(auth()->guard('customer')->user()->first_name, 0, 1) }}
                                    <span class="user_tooltip_content">
                                        <ul>
                                            <li><button class="btn btn-primary" onclick="customerProfile()"><i class="icon-user"></i> My Profile</button></li>
                                            <li><button class="btn btn-primary" onclick="customerOrder()"><i class="icon-list"></i> Orders</button></li>
-                                           <li><form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
-                                               @csrf
-                                           <button type="submit" class="btn btn-danger"><i class="icon-logout"></i> Signout</button>
-                                           </form></li>
+                                           <li><button type="button" class="btn btn-danger" onclick="customerLogout()"><i class="icon-logout"></i> Signout</button></li>
                                        </ul>
                                    </span>
                                </div>
                                <script>
        function customerProfile(){
-           window.location = '{{ route('customer.edit', auth()->user()->id) }}';
+           window.location = '{{ route('customer.edit', auth()->guard('customer')->user()->id) }}';
        }
        function customerOrder(){
            window.location = '{{ route('customer_order') }}';
        }
+       function customerLogout(){
+    window.location = '{{ route('customerLogout') }}';
+}
     </script>
                                    
                                @else
@@ -501,12 +503,12 @@
         <div class="offcanvas-buttons mt-30px">
             <div class="header-tools d-flex">
                 <div class="cart-info d-flex align-self-center">
-                    @if(optional(auth()->user())->id)
-                    <form action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    {{ optional(auth()->user())->first_name }} {{ optional(auth()->user())->last_name }} &nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-danger" type="submit"><i class="icon-logout"></i></button>
-                    </form>
+                    @if(optional(auth()->guard('customer')->user())->id)
+                    
+                    
+                    {{ optional(auth()->guard('customer')->user())->first_name }} {{ optional(auth()->guard('customer')->user())->last_name }} &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-danger" type="button" onclick="customerLogout()"><i class="icon-logout"></i></button>
+    
                     @else
                     <a href="/customer_login" class="user"><i class="icon-user"></i></a>
                     @endif &nbsp;&nbsp;
@@ -542,3 +544,22 @@
 <!--------------------------------------------End Mobile Responsive Header Section----------------------------------------->
 
 
+
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '780420057061534');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=780420057061534&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->

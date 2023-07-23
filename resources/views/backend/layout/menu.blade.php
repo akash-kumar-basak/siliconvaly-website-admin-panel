@@ -62,6 +62,12 @@
                                 <i class="ri-record-circle-line"></i> <span data-key="t-dashboards">Order</span>
                             </a>
                         </li> 
+
+                        <li class="nav-item">
+                           <a class="nav-link menu-link" href="{{ route('userLogout') }}" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <i class="mdi mdi-logout"></i> <span data-key="t-dashboards">Signout</span>
+                           </a>
+                        </li>
                        
 
 

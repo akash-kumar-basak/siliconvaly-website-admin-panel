@@ -10,6 +10,7 @@ use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\frontend\CustomerController;
 use App\Http\Controllers\frontend\ProductCartController;
 use App\Http\Controllers\frontend\OrderController;
+use App\Http\Controllers\Auth\LoginController;
 
 
 /*
@@ -25,26 +26,32 @@ use App\Http\Controllers\frontend\OrderController;
 
 
 //-----------------backend----------------------
-Route::get('/dashboard', function () {
-    return view('backend.element.dashboard.dashboard');
-})->name('dashboard');
-Route::get('/admin_login', function(){
-    return view('backend.element.auth.login');
-});
-Route::get('/admin_logout', function(){
-    return view('backend.element.auth.logout');
-});
+Auth::routes();
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function () {
+        return view('backend.element.dashboard.dashboard');
+    })->name('dashboard');
 Route::get('/category_read/{id}', [Category2Controller::class, 'category2Read']);
 Route::resource('companySettings', CompanySettingsConrtoller::class);
 Route::resource('category1', Category1Controller::class);
 Route::resource('category2', Category2Controller::class);
 Route::resource('product', ProductController::class);
-
+});
+Route::get('/admin_login', function(){
+    return view('backend.element.auth.login');
+})->name('admin_login');
+Route::get('/admin_logout', function(){
+    return view('backend.element.auth.logout');
+})->name('admin_logout');
+Route::get('/user/logout', [CustomerController::class, 'userLogout'])->name('userLogout');
+Route::get('/customer/logout', [CustomerController::class, 'customerLogout'])->name('customerLogout');
 
 //---------------frontend------------------------
-Route::get('/customer_login', [CustomerController::class, 'customerLogin']);
-Route::get('/customer_order', [CustomerController::class, 'customerOrder'])->name('customer_order');
+//Auth::routes();
 Route::resource('customer', CustomerController::class);
+Route::get('/customer_login', [CustomerController::class, 'customerLogin']);
+Route::post('/customer_login', [LoginController::class, 'customerLogin'])->name('customer_login');
+Route::get('/customer_order', [CustomerController::class, 'customerOrder'])->name('customer_order');
 Route::resource('product_cart', ProductCartController::class);
 Route::resource('order', OrderController::class);
 Route::get('/', [homeController::class, 'home']);
@@ -56,6 +63,6 @@ Route::post('/product_to_cart', [ProductCartController::class, 'productToCart'])
 
 
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
