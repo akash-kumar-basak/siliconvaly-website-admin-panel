@@ -10,7 +10,7 @@
             </div>
             <div class="recent-slider-two slider-nav-style-1 multi-row">
                 <div class="recent-slider-wrapper swiper-wrapper">
-                    @foreach($product as $products)
+                    @foreach($newArrivalProducts as $products)
                     <div class="recent-slider-item swiper-slide">
                         <article class="list-product">
                             <div class="img-block">
@@ -35,9 +35,11 @@
                                 </div>
                                 <div class="pricing-meta">
                                     <ul>
-                                        <li class="old-price @php if($products->discount<1){echo 'not-cut';} @endphp ">৳{{$products->regular_price}}</li>
-                                        <li class="current-price">৳@php if($products->discount>=1){echo $products->product_price;}@endphp</li>
-                                        <li class="discount-price">@php if($products->discount>=1){echo '-'.$products->discount.'%';}@endphp</li>
+                                        <li class="old-price">৳{{$products->regular_price}}</li>
+                                        <li class="current-price">৳{{$products->sale_price}}</li>
+                                        @if($products->discount)
+                                        <li class="discount-price">-{{$products->discount}}%</li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -65,9 +67,11 @@
                                 </div>
                                 <div class="pricing-meta">
                                     <ul>
-                                        <li class="old-price @php if($products->discount<1){echo 'not-cut';} @endphp ">৳{{$products->regular_price}}</li>
-                                        <li class="current-price">৳@php if($products->discount>=1){echo $products->product_price;}@endphp</li>
-                                        <li class="discount-price">@php if($products->discount>=1){echo '-'.$products->discount.'%';}@endphp</li>
+                                        <li class="old-price">৳{{$products->regular_price}}</li>
+                                        <li class="current-price">৳{{$products->sale_price}}</li>
+                                        @if($products->discount)
+                                        <li class="discount-price">-{{$products->discount}}%</li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>

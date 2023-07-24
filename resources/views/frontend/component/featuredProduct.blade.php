@@ -43,7 +43,7 @@
                                     <li class="old-price">৳{{$products->regular_price}}</li>
                                     <li class="current-price">৳{{$products->sale_price}}</li>
                                     @if($products->discount)
-                                    <li class="discount-price">{{$products->discount}}%</li>
+                                    <li class="discount-price">-{{$products->discount}}%</li>
                                     @endif
                                 </ul>
                             </div>

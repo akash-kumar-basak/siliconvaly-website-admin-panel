@@ -13,6 +13,7 @@ class homeController extends Controller
 {
     public function home(){
         $data['product'] = ProductModel::all();
+        $data['newArrivalProducts'] = ProductModel::inRandomOrder()->get();
         $data['category1s'] = Category1Model::all();
         $data['category2s'] = Category2Model::all();
         $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
