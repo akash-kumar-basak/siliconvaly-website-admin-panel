@@ -40,6 +40,7 @@ class OrderController extends Controller
             [
                 'uuid'              => Str::uuid(),
                 'customer_id'       => auth()->guard('customer')->user()->id,
+                'delivery_address'  => $request->house_number.', '.$request->street.', '.$request->post_code.', '.$request->district.', '.$request->country,
                 'time'              => now() ,
                 'status'            => 1,
         ]);
