@@ -28,7 +28,7 @@
                         <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
 <lord-icon
     src="https://cdn.lordicon.com/tqywkdcz.json"
-    trigger="hover"
+    trigger="loop"
     colors="primary:#4bb3fd,secondary:#f28ba8,tertiary:#ffc738,quaternary:#f24c00"
     style="width:250px;height:250px">
 </lord-icon>
