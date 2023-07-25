@@ -59,7 +59,8 @@ class OrderController extends Controller
         $cart = ProductCartModel::whereIn('id', $request->cart_id)->delete();
         
     }
-        return redirect('/');
+    $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
+        return view('frontend.element.customer.order_confirm', $data);
     }
 
     /**

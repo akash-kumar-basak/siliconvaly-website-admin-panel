@@ -147,16 +147,16 @@
 
                         <script>
     function edit() {
-        document.getElementById('image').innerHTML = '<input class="form-control" name="image" type="file">';
-        document.getElementById('first_name').innerHTML = '<input class="form-control" value="{{ $customer->first_name }}" name="first_name" type="text" required>';
-        document.getElementById('last_name').innerHTML = '<input class="form-control" value="{{ $customer->last_name }}" name="last_name" type="text" >';
-        document.getElementById('email').innerHTML = '<input class="form-control" value="{{ $customer->email }}" name="email" type="email" readonly>';
-        document.getElementById('phone').innerHTML = '<input class="form-control" value="{{ $customer->phone }}" name="phone" type="text" readonly>';
-        document.getElementById('password').innerHTML = '<input class="form-control" value="" name="password" type="text" required>';
-        document.getElementById('country').innerHTML = '<input class="form-control" value="{{ $customer->country }}" name="country" type="text" >';
-        document.getElementById('district').innerHTML = '<input class="form-control" value="{{ $customer->district }}" name="district" type="text" >';
-        document.getElementById('post_code').innerHTML = '<input class="form-control" value="{{ $customer->post_code }}" name="post_code" type="text" >';
-        document.getElementById('street').innerHTML = '<input class="form-control" value="{{ $customer->street }}" name="street" type="text" >';
+        document.getElementById('image').innerHTML        = '<input class="form-control" name="image" type="file">';
+        document.getElementById('first_name').innerHTML   = '<input class="form-control" value="{{ $customer->first_name }}" name="first_name" type="text" required>';
+        document.getElementById('last_name').innerHTML    = '<input class="form-control" value="{{ $customer->last_name }}" name="last_name" type="text" >';
+        document.getElementById('email').innerHTML        = '<input class="form-control" value="{{ $customer->email }}" name="email" type="email" readonly>';
+        document.getElementById('phone').innerHTML        = '<input class="form-control" value="{{ $customer->phone }}" name="phone" type="text" readonly>';
+        document.getElementById('password').innerHTML     = '<input class="form-control" value="" name="password" type="text" required>';
+        document.getElementById('country').innerHTML      = '<input class="form-control" value="{{ $customer->country }}" name="country" type="text" >';
+        document.getElementById('district').innerHTML     = '<input class="form-control" value="{{ $customer->district }}" name="district" type="text" >';
+        document.getElementById('post_code').innerHTML    = '<input class="form-control" value="{{ $customer->post_code }}" name="post_code" type="text" >';
+        document.getElementById('street').innerHTML       = '<input class="form-control" value="{{ $customer->street }}" name="street" type="text" >';
         document.getElementById('house_number').innerHTML = '<input class="form-control" value="{{ $customer->house_number }}" name="house_number" type="text" >';
         document.getElementById('clickforedit').innerHTML = '<button type="submit" class="btn btn-primary">Update</button>';
     }

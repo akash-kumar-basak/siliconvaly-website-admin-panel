@@ -110,6 +110,46 @@
                                                     </div>
                                                 </div>
                                 </div>
+                                <br>
+                                <div align="center" class="row">
+    <div class="col-lg-12">
+                    <div class="input-group">
+                        <span class="input-group-text col-sm-3" id="basic-addon1">Shp. Chrg. In Dhaka</span>
+                        <input type="number" class="form-control" aria-label="Name" name="shipping_charge_inside_dhaka" aria-describedby="basic-addon1" value="{{$CompanyInformation->shipping_charge_inside_dhaka}}">
+                        <span class="input-group-text col-sm-1" id="basic-addon1">BDT</span>
+                    </div>
+                </div>
+</div>
+<br>
+<div align="center" class="row">
+    <div class="col-lg-12">
+                    <div class="input-group">
+                        <span class="input-group-text col-sm-3" id="basic-addon1">Shp. Chrg. Out Dhaka</span>
+                        <input type="number" class="form-control" aria-label="Name" name="shipping_charge_outside_dhaka" aria-describedby="basic-addon1" value="{{$CompanyInformation->shipping_charge_outside_dhaka}}">
+                        <span class="input-group-text col-sm-1" id="basic-addon1">BDT</span>
+                    </div>
+                </div>
+</div>
+<br>
+<div align="center" class="row">
+    <div class="col-lg-12">
+                    <div class="input-group">
+                        <span class="input-group-text col-sm-3" id="basic-addon1">Shp. Chrg. Near Dhaka</span>
+                        <input type="number" class="form-control" aria-label="Name" name="shipping_charge_near_dhaka" aria-describedby="basic-addon1" value="{{$CompanyInformation->shipping_charge_near_dhaka}}">
+                        <span class="input-group-text col-sm-1" id="basic-addon1">BDT</span>
+                    </div>
+                </div>
+</div>
+<br>
+<div align="center" class="row">
+    <div class="col-lg-12">
+                    <div class="input-group">
+                        <span class="input-group-text col-sm-3" id="basic-addon1">Discount All Product</span>
+                        <input type="number" class="form-control" aria-label="Name" name="discount_all_product" aria-describedby="basic-addon1" value="{{$CompanyInformation->discount_all_product}}">
+                        <span class="input-group-text col-sm-1" id="basic-addon1">%</span>
+                    </div>
+                </div>
+</div>
 
                             </div>
 
@@ -181,6 +221,15 @@
                                                     </div>
                                                 </div>
                                 </div>
+                                <br>
+                                <div align="center" class="row">
+    <div class="col-lg-12">
+                    <div class="input-group">
+                        <span class="input-group-text col-sm-3" id="basic-addon1">Privacy Policy</span>
+                        <textarea type="text" rows='5' class="form-control" aria-label="Name" name="privacy_policy" aria-describedby="basic-addon1">{{$CompanyInformation->privacy_policy}}</textarea>
+                    </div>
+                </div>
+</div>
                                 <br>
                                 <div align="center" class="row">
                                     <div class="col-lg-12">

@@ -101,7 +101,7 @@
                                             <ul>
                                             @php $subtotal = 0; @endphp
                                             @foreach($carts as $cart)
-                                                <li><span class="order-middle-left">{{ $cart->product->name }} X {{ $cart->quantity }}</span> <span class="order-price">${{ $cart->product->sale_price * $cart->quantity }} </span></li>
+                                                <li><span class="order-middle-left">{{ $cart->product->name }} X {{ $cart->quantity }}</span> <span class="order-price">৳{{ $cart->product->sale_price * $cart->quantity }} </span></li>
                                                 <input type="hidden" name="product_id[]" value="{{ $cart->product->id }}">
                                                 <input type="hidden" name="quantity[]" value="{{ $cart->quantity }}">
                                                 <input type="hidden" name="cart_id[]" value="{{ $cart->id }}">
@@ -114,13 +114,25 @@
                                         <div class="your-order-bottom">
                                             <ul>
                                                 <li class="your-order-shipping">Shipping</li>
-                                                <li>Free shipping</li>
+                                                <li>৳
+                                                    @if(companySettings()->shipping_charge_inside_dhaka == 'Dhaka')
+                                                        {{ companySettings()->shipping_charge_inside_dhaka }}
+                                                    @else
+                                                        {{ companySettings()->shipping_charge_outside_dhaka }}
+                                                    @endif
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="your-order-total">
                                             <ul>
                                                 <li class="order-total">Total</li>
-                                                <li>${{ $subtotal }}</li>
+                                                <li>৳
+                                                @if(companySettings()->shipping_charge_inside_dhaka == 'Dhaka')
+    {{ $subtotal+companySettings()->shipping_charge_inside_dhaka }}
+@else
+    {{ $subtotal+companySettings()->shipping_charge_outside_dhaka }}
+@endif
+                                                    </li>
                                             </ul>
                                         </div>
                                     </div>

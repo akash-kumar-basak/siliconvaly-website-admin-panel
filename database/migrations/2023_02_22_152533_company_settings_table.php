@@ -23,7 +23,12 @@ return new class extends Migration
             $table -> string('email_two')->nullable();
             $table -> string('address_one')->nullable();
             $table -> string('address_two')->nullable();
+            $table -> string('shipping_charge_inside_dhaka')->nullable();
+            $table -> string('shipping_charge_outside_dhaka')->nullable();
+            $table -> string('shipping_charge_near_dhaka')->nullable();
+            $table -> string('discount_all_product')->nullable();
             $table -> string('announcement')->nullable();
+            $table -> string('privacy_policy')->nullable();
             $table -> string('company_logo')->nullable();
             $table -> string('website')->nullable();
             $table -> string('bin_no')->nullable();

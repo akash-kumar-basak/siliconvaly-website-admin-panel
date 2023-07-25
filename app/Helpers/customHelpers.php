@@ -1,6 +1,7 @@
 <?php
 use App\Models\backend\Category1Model;
 use App\Models\backend\Category2Model;
+use App\Models\backend\CompanyModel;
 
 function CategoryName($tablename, $id){
     if($tablename == "category_one"){
@@ -26,4 +27,9 @@ function dangerousGoodsChecke($checkboxValue, $checkedDataValue){
     else{
         return '';
     }
+}
+
+function companySettings(){
+    $companySettings = CompanyModel::find(1);
+    return $companySettings;
 }

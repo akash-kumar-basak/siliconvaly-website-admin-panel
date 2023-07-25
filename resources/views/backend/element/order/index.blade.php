@@ -58,7 +58,13 @@
                                                                 $subtotal += App\Models\backend\ProductModel::where('id', $product->product_id )->value('sale_price');
                                                             @endphp
                                                         @endforeach
-                                                        <strong>{{ $subtotal }}</strong>
+                                                        <strong>
+                                                        @if(companySettings()->shipping_charge_inside_dhaka == 'Dhaka')
+    {{ $subtotal+companySettings()->shipping_charge_inside_dhaka }}
+@else
+    {{ $subtotal+companySettings()->shipping_charge_outside_dhaka }}
+@endif
+                                                            </strong>
                                                         </td>
                                                         <td>
                                                             {{ $order->delivery_address }}

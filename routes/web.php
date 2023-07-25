@@ -59,6 +59,7 @@ Route::get('/product/{category}/{id}', [homeController::class, 'productDetails']
 Route::get('/product_cart', [homeController::class, 'productCart']);
 Route::get('/product_checkout', [homeController::class, 'productCheckout']);
 Route::post('/product_to_cart', [ProductCartController::class, 'productToCart']);
+Route::get('/customer_order_congratulation', [OrderController::class, 'orderCongratulation']);
 
 
 
