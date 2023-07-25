@@ -115,7 +115,7 @@
                                             <ul>
                                                 <li class="your-order-shipping">Shipping</li>
                                                 <li>৳
-                                                    @if(companySettings()->shipping_charge_inside_dhaka == 'Dhaka')
+                                                    @if(auth()->guard('customer')->user()->district == 'Dhaka')
                                                         {{ companySettings()->shipping_charge_inside_dhaka }}
                                                     @else
                                                         {{ companySettings()->shipping_charge_outside_dhaka }}
@@ -127,7 +127,7 @@
                                             <ul>
                                                 <li class="order-total">Total</li>
                                                 <li>৳
-                                                @if(companySettings()->shipping_charge_inside_dhaka == 'Dhaka')
+                                                @if(auth()->guard('customer')->user()->district == 'Dhaka')
     {{ $subtotal+companySettings()->shipping_charge_inside_dhaka }}
 @else
     {{ $subtotal+companySettings()->shipping_charge_outside_dhaka }}

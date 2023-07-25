@@ -59,7 +59,7 @@
                                                             @endphp
                                                         @endforeach
                                                         <strong>
-                                                        @if(companySettings()->shipping_charge_inside_dhaka == 'Dhaka')
+                                                        @if(auth()->guard('customer')->user()->district == 'Dhaka')
     {{ $subtotal+companySettings()->shipping_charge_inside_dhaka }}
 @else
     {{ $subtotal+companySettings()->shipping_charge_outside_dhaka }}
