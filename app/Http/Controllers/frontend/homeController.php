@@ -15,24 +15,20 @@ class homeController extends Controller
         $data['product'] = ProductModel::inRandomOrder()->get();
         $data['category1s'] = Category1Model::all();
         $data['category2s'] = Category2Model::all();
-        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
         return view('frontend.element.home.homepage', $data);
     }
 
     public function productDetails($category, $id){
         $product = ProductModel::find($id);
-        $carts = ProductCartModel::all();
-        return view('frontend.element.product.product-details', compact('product', 'carts'));
+        return view('frontend.element.product.product-details', compact('product'));
     }
 
     public function productCart(){
-        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
-        return view('frontend.element.product.product-cart', $data);
+        return view('frontend.element.product.product-cart');
     }
 
     public function productCheckout(){
-        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
-        return view('frontend.element.product.product-checkout', $data);
+        return view('frontend.element.product.product-checkout');
     }
 
 }

@@ -176,7 +176,8 @@ function productToCart(element){
     axios.post(route, data).then
     (function (response)
     {
-        //
+        let totalCartNumber = response.data;
+        let totalProductCart = document.getElementById("totalProductCart").setAttribute("data-number", totalCartNumber.length);
     })
         .catch(function (error)
         {

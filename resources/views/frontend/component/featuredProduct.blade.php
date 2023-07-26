@@ -80,7 +80,9 @@ function productToCart(element){
     axios.post(route, data).then
     (function (response)
     {
-        alert(response.data);
+        let totalCartNumber = response.data;
+        let totalProductCart = document.getElementById("totalProductCart").setAttribute("data-number", totalCartNumber.length);
+        let allProductCartList = document.getElementById('allProductCartList').innerHTML = '<ul class="minicart-product-list"> @php $subtotal = 0; @endphp @foreach(customerProductCart() as $cart) <li>       <a href="single-product.html" class="image"><img src="{{ asset($cart->product->image_one) }}" alt="Cart product Image"></a>     <div class="content">       <a href="single-product.html" class="title">{{ $cart->product->name }}</a>          <span class="quantity-price">{{ $cart->quantity }} x <span class="amount">{{ $cart->product->sale_price }}</span></span>     <a href="#" class="remove">×</a>     </div>   </li>    @php         $subtotal += $cart->product->sale_price * $cart->quantity;   @endphp    @endforeach</ul>';
     })
         .catch(function (error)
         {

@@ -74,7 +74,9 @@ class ProductCartController extends Controller
                     'product_id'        => $request->input('ProductId'),
                     'quantity'          => $request->input('Quantity'),
             ]);
-        return $productId;
+
+        $carts = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
+        return $carts;
     }
     
 }

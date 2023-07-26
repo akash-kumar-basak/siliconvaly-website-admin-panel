@@ -36,7 +36,7 @@
                                         </thead>
                                         <tbody>
                                         @php $subtotal = 0; @endphp
-                                        @foreach($carts as $cart)
+                                        @foreach(customerProductCart() as $cart)
                                             <tr>
                                                 <td class="product-thumbnail">
                                                     <a href="#"><img class="img-responsive" src="{{ asset($cart->product->image_one) }}" alt=""></a>

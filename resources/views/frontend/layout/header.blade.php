@@ -169,7 +169,7 @@
                                 <a href="/customer_login" class="user"><i class="icon-user"></i></a>
                             @endif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <!-- <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="0"><i class="icon-heart"></i></a> -->
-                                <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="{{ count($carts) }}"><i class="icon-bag"></i><span>৳0.00</span></a>
+                                <a href="#offcanvas-cart" class="bag offcanvas-toggle" id="totalProductCart" data-number="{{ count(customerProductCart()) }}"><i class="icon-bag"></i><span>৳0.00</span></a>
                             </div>
                         </div>
                     </div>
@@ -365,18 +365,18 @@
             <span class="title">Cart</span>
             <button class="offcanvas-close">×</button>
         </div>
-        <div class="body customScroll">
+        <div class="body customScroll" id="allProductCartList">
             <ul class="minicart-product-list">
                 @php $subtotal = 0; @endphp
-                @foreach($carts as $cart)
+                @foreach(customerProductCart() as $cart)
                 <li>
-    <a href="single-product.html" class="image"><img src="{{ asset($cart->product->image_one) }}" alt="Cart product Image"></a>
-    <div class="content">
-        <a href="single-product.html" class="title">{{ $cart->product->name }}</a>
-        <span class="quantity-price">{{ $cart->quantity }} x <span class="amount">{{ $cart->product->sale_price }}</span></span>
-        <a href="#" class="remove">×</a>
-    </div>
-</li>
+                   <a href="single-product.html" class="image"><img src="{{ asset($cart->product->image_one) }}" alt="Cart product Image"></a>
+                 <div class="content">
+                    <a href="single-product.html" class="title">{{ $cart->product->name }}</a>
+                      <span class="quantity-price">{{ $cart->quantity }} x <span class="amount">{{ $cart->product->sale_price }}</span></span>
+                    <a href="#" class="remove">×</a>
+                  </div>
+               </li>
                 @php 
                     $subtotal += $cart->product->sale_price * $cart->quantity;
                 @endphp

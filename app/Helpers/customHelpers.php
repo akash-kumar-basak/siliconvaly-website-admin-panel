@@ -2,6 +2,7 @@
 use App\Models\backend\Category1Model;
 use App\Models\backend\Category2Model;
 use App\Models\backend\CompanyModel;
+use App\Models\frontend\ProductCartModel;
 
 function CategoryName($tablename, $id){
     if($tablename == "category_one"){
@@ -32,4 +33,9 @@ function dangerousGoodsChecke($checkboxValue, $checkedDataValue){
 function companySettings(){
     $companySettings = CompanyModel::find(1);
     return $companySettings;
+}
+
+function customerProductCart(){
+    $carts = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
+    return $carts;
 }

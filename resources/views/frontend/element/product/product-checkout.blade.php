@@ -100,7 +100,7 @@
                                         <div class="your-order-middle">
                                             <ul>
                                             @php $subtotal = 0; @endphp
-                                            @foreach($carts as $cart)
+                                            @foreach(customerProductCart() as $cart)
                                                 <li><span class="order-middle-left">{{ $cart->product->name }} X {{ $cart->quantity }}</span> <span class="order-price">৳{{ $cart->product->sale_price * $cart->quantity }} </span></li>
                                                 <input type="hidden" name="product_id[]" value="{{ $cart->product->id }}">
                                                 <input type="hidden" name="quantity[]" value="{{ $cart->quantity }}">
