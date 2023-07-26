@@ -119,8 +119,13 @@ class CustomerController extends Controller
 }
 
 public function customerLogin(){
-    $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
-    return view('frontend.element.customer.login', $data);
+    if(auth()->guard('customer')->user()){
+        return redirect('/');
+    }
+    else{
+        $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
+        return view('frontend.element.customer.login', $data);
+    }
 }
 
 public function customerOrder(){

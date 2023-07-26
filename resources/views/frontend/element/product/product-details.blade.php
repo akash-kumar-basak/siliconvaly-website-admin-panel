@@ -94,7 +94,7 @@
                             <div class="cart-plus-minus">
                                 <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" id="quantity" />
                             </div>
-                            <div class="pro-details-cart btn-hover" data-id="{{ $product->id }}" onclick="productToCart(this)">
+                            <div class="pro-details-cart btn-hover" data-id="{{ $product->id }}" style="cursor: pointer !important;" onclick="productToCart(this)">
                                 <a>  Add To Cart</a>
                             </div>
                         </div>
