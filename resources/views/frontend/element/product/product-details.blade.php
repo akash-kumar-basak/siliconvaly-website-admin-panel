@@ -158,8 +158,8 @@
                             <p>{!! $product->long_description !!}</p>
                         </div>
                     </div>
-                    <div id="des-details3" class="tab-pane">   
-                        <!-Review details->                      
+                    <div id="des-details3" class="tab-pane">
+                        <!-Review details->
                     </div>
                 </div>
             </div>
@@ -167,23 +167,49 @@
     </div>
     <!-- product details description area end -->
 
-    <script>
-function productToCart(element){
-    let productId = $(element).attr("data-id");
-    let quantity = document.getElementById('quantity').value;
-    let route = '/product_to_cart';
-    let data = {ProductId: productId, Quantity: quantity};
-    axios.post(route, data).then
-    (function (response)
-    {
-        let totalCartNumber = response.data;
-        let totalProductCart = document.getElementById("totalProductCart").setAttribute("data-number", totalCartNumber.length);
-    })
-        .catch(function (error)
-        {
-            //
-        });
-}
+<script>
+    function productToCart(element) {
+        let productId = $(element).attr("data-id");
+        let quantity = document.getElementById('quantity').value;
+        let route = '/product_to_cart';
+        let data = {ProductId: productId, Quantity: quantity};
+        axios.post(route, data).then
+        (function (response) {
+            let productCart = response.data;
+            let totalProductCart = document.getElementById("totalProductCart").setAttribute("data-number", productCart.length);
+            let totalProductCartMobile = document.getElementById("totalProductCartMobileView").setAttribute("data-number", productCart.length);
+            const container = document.getElementById('allProductCartList');
+
+// Clear the container before adding new list items (optional)
+            container.innerHTML = '';
+
+// Loop through the productCart array and add list items to the container
+            for (let i = 0; i < productCart.length; i++) {
+
+                // Create a new list item element
+                const listItem = document.createElement('li');
+
+                // Set the inner HTML of the list item using backticks for easy formatting
+                listItem.innerHTML = `
+    <a href="single-product.html" class="image">
+      <img src="${productCart[i].product.image_one}" alt="Cart product Image">
+    </a>
+    <div class="content">
+      <a href="single-product.html" class="title">${productCart[i].product.name}</a>
+      <span class="quantity-price">${productCart[i].quantity} x <span class="amount">${productCart[i].product.sale_price}</span></span>
+      <a href="#" class="remove">×</a>
+    </div>
+  `;
+
+                // Append the new list item to the container
+                container.appendChild(listItem);
+            }
+            //document.getElementById('subtotal').innerHTML = subtotal;
+        })
+            .catch(function (error) {
+                //
+            });
+    }
 </script>
 @endsection
 <!-- PROGRAMMING & CODING BY AKASH KUMAR BASAK -->

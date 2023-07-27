@@ -13,7 +13,7 @@
       line-height: 37px;
       cursor: pointer;
     }
-    
+
     .customer_text_icon::first-letter {
       font-weight: bold;
     }
@@ -138,7 +138,7 @@
                         <div class="header-tools d-flex">
                             <div class="cart-info d-flex align-self-center">
                             @if(optional(auth()->guard('customer')->user())->id)
-                                
+
                             @csrf
                             <div class="customer_text_icon user_tooltip">
                                 {{ substr(auth()->guard('customer')->user()->first_name, 0, 1) }}
@@ -164,7 +164,7 @@
         window.location = '{{ route('customerLogout') }}';
     }
 </script>
-                                
+
                             @else
                                 <a href="/customer_login" class="user"><i class="icon-user"></i></a>
                             @endif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -235,7 +235,7 @@
                 <div class="header-tools justify-content-end">
                     <div class="cart-info d-flex align-self-center">
                     @if(optional(auth()->guard('customer')->user())->id)
-                               
+
                                @csrf
                                <div class="customer_text_icon user_tooltip">
                                    {{ substr(auth()->guard('customer')->user()->first_name, 0, 1) }}
@@ -258,12 +258,12 @@
     window.location = '{{ route('customerLogout') }}';
 }
     </script>
-                                   
+
                                @else
                                    <a href="/customer_login" class="user"><i class="icon-user"></i></a>
                                @endif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <!-- <a href="#offcanvas-wishlist" class="heart offcanvas-toggle d-xs-none" data-number="3"><i class="icon-heart"></i></a> -->
-                        <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i class="icon-bag"></i><span>$20.00</span></a>
+                        <a href="#offcanvas-cart" class="bag offcanvas-toggle" id="totalProductCartMobileView" data-number="{{ count(customerProductCart()) }}"><i class="icon-bag"></i><span>$20.00</span></a>
                     </div>
                     <div class="mobile-menu-toggle">
                         <a href="#offcanvas-mobile-menu" class="offcanvas-toggle">
@@ -308,7 +308,7 @@
         <div class="row">
             <div class="col-md-12">
 
-                
+
             </div>
         </div>
     </div>
@@ -365,10 +365,10 @@
             <span class="title">Cart</span>
             <button class="offcanvas-close">×</button>
         </div>
-        <div class="body customScroll" id="allProductCartList">
-            <ul class="minicart-product-list">
+        <div class="body customScroll">
+            <ul class="minicart-product-list" id="allProductCartList">
                 @php $subtotal = 0; @endphp
-                @foreach(customerProductCart() as $cart)
+                    @foreach(customerProductCart() as $cart)
                 <li>
                    <a href="single-product.html" class="image"><img src="{{ asset($cart->product->image_one) }}" alt="Cart product Image"></a>
                  <div class="content">
@@ -377,22 +377,22 @@
                     <a href="#" class="remove">×</a>
                   </div>
                </li>
-                @php 
+                @php
                     $subtotal += $cart->product->sale_price * $cart->quantity;
-                @endphp
+                    @endphp
                 @endforeach
             </ul>
         </div>
         <div class="foot">
             <div class="sub-total">
                 <strong>Subtotal :</strong>
-                <span class="amount">$ {{ $subtotal }} </span>
+                <span class="amount" id="subtotal">৳ {{ $subtotal }} </span>
             </div>
             <div class="buttons">
                 <a href="/product_cart" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
                 <a href="/product_checkout" class="btn btn-outline-dark current-btn">checkout</a>
             </div>
-            <p class="minicart-message">Free Shipping on All Orders Over $100!</p>
+            <p class="minicart-message">Product Shipping On All Orders The Country</p>
         </div>
     </div>
 </div>
@@ -504,11 +504,11 @@
             <div class="header-tools d-flex">
                 <div class="cart-info d-flex align-self-center">
                     @if(optional(auth()->guard('customer')->user())->id)
-                    
-                    
+
+
                     {{ optional(auth()->guard('customer')->user())->first_name }} {{ optional(auth()->guard('customer')->user())->last_name }} &nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn btn-danger" type="button" onclick="customerLogout()"><i class="icon-logout"></i></button>
-    
+
                     @else
                     <a href="/customer_login" class="user"><i class="icon-user"></i></a>
                     @endif &nbsp;&nbsp;
