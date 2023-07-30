@@ -151,8 +151,11 @@ public function customerLoginForm(){
         }
 
 
-        if (Auth::guard('customer')->attempt($request->only(['email','password']))){
-            return redirect('/');
+        if (\auth()->user()){
+            Auth::logout();
+            if (Auth::guard('customer')->attempt($request->only(['email','password']))){
+                return redirect('/');
+            }
         }
 
         return back();
