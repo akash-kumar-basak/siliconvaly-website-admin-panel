@@ -128,6 +128,7 @@ public function customerLoginForm(){
     if(auth()->guard('customer')->user()){
         return redirect('/');
     }
+
     else{
         $data['carts'] = ProductCartModel::where('customer_id', optional(auth()->guard('customer')->user())->id)->get();
         return view('frontend.element.customer.login', $data);
@@ -150,12 +151,12 @@ public function customerLoginForm(){
             ]);
         }
 
-
-        if (\auth()->user()){
+        if (auth()->guard('web')->user()){
             Auth::logout();
-            if (Auth::guard('customer')->attempt($request->only(['email','password']))){
-                return redirect('/');
-            }
+        }
+
+        if (Auth::guard('customer')->attempt($request->only(['email','password']))){
+            return redirect('/');
         }
 
         return back();
