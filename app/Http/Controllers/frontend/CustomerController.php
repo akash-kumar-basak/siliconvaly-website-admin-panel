@@ -12,11 +12,17 @@ use App\Mail\CustomerAccountVerificationMail;
 use App\Models\frontend\OrderModel;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\FileSaver;
+use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 
 class CustomerController extends Controller
 {
     use FileSaver;
+
+//    public function __construct()
+//    {
+//        $this->middleware('customer');
+//    }
 
     /**
      * Display a listing of the resource.
@@ -118,7 +124,7 @@ class CustomerController extends Controller
     }
 }
 
-public function customerLogin(){
+public function customerLoginForm(){
     if(auth()->guard('customer')->user()){
         return redirect('/');
     }
@@ -127,6 +133,30 @@ public function customerLogin(){
         return view('frontend.element.customer.login', $data);
     }
 }
+
+    public function customerLogin(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            'email'     => 'required',
+            'password'        => 'required',
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'status' => false,
+                'data' => [],
+                $validator->errors(),
+                'message' => 'Validation Required',
+            ]);
+        }
+
+
+        if (Auth::guard('customer')->attempt($request->only(['email','password']))){
+            return redirect('/');
+        }
+
+        return back();
+    }
 
 public function customerOrder(){
     $data['orders'] = OrderModel::where('customer_id', auth()->guard('customer')->user()->id)->with('customer')->get();

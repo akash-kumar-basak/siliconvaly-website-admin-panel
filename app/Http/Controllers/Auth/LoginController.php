@@ -41,27 +41,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
 
     }
-    public function customerLogin(Request $request)
-    { 
-        $validator = Validator::make($request->all(),[
-            'email'     => 'required',
-            'password'        => 'required',
-        ]);
-
-        if($validator->fails()){
-            return response()->json([
-                'status' => false,
-                'data' => [],
-                $validator->errors(),
-                'message' => 'Validation Required',
-                ]);
-        }
-        
-
-        if (Auth::guard('customer')->attempt($request->only(['email','password']))){
-            return redirect('/');
-        }
-
-        return back()->withInput($request->only('email'));
-    }
 }
