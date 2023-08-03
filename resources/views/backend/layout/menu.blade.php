@@ -43,32 +43,32 @@
                             <a class="nav-link menu-link" href="{{ route('companySettings.edit', 1) }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-settings-2-line"></i> <span data-key="t-dashboards">Company Settings</span>
                             </a>
-                        </li> 
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{ route('category1.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-menu-2-line"></i> <span data-key="t-dashboards">Category Configuration</span>
                             </a>
-                        </li> 
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{ route('product.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-folder-2-line"></i> <span data-key="t-dashboards">Product</span>
                             </a>
-                        </li> 
+                        </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="{{ route('order.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <a class="nav-link menu-link" href="{{ route('customer-order.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-record-circle-line"></i> <span data-key="t-dashboards">Order</span>
                             </a>
-                        </li> 
+                        </li>
 
                         <li class="nav-item">
                            <a class="nav-link menu-link" href="{{ route('userLogout') }}" aria-expanded="false" aria-controls="sidebarDashboards">
                             <i class="mdi mdi-logout"></i> <span data-key="t-dashboards">Signout</span>
                            </a>
                         </li>
-                       
+
 
 
 
