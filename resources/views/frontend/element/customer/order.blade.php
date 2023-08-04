@@ -42,7 +42,6 @@
     <thead class="table-light">
         <tr>
             <th scope="col">SI</th>
-            <th scope="col">Customer</th>
             <th scope="col">Product</th>
             <th scope="col">Total Cost(BDT)</th>
             <th scope="col">Shipping Address</th>
@@ -55,13 +54,8 @@
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>
-                <i class="mdi mdi-account"></i> <strong>{{ $order->customer->first_name }} {{ $order->customer->last_name }}</strong> <br>
-                <i class="mdi mdi-phone"></i> <strong>{{ $order->customer->phone }}</strong> <br>
-                <i class="mdi mdi-image-filter-center-focus-strong"></i> <strong>{{ $order->uuid }}</strong>
-            </td>
-            <td>
                 @foreach(App\Models\frontend\OrderProductModel::where('order_id', $order->id)->get() as $product)
-                <img src="{{ asset(App\Models\backend\ProductModel::where('id', $product->product_id )->value('image_one')) }}" with="40px" height="40px"> {{ Str::limit(App\Models\backend\ProductModel::where('id', $product->product_id )->value('name'), 30) }} &#10006; {{ $product->quantity }} 
+                <img src="{{ asset(App\Models\backend\ProductModel::where('id', $product->product_id )->value('image_one')) }}" with="40px" height="40px"> {{ Str::limit(App\Models\backend\ProductModel::where('id', $product->product_id )->value('name'), 30) }} &#10006; {{ $product->quantity }}
                 @if (!$loop->last)
                     <hr>
                  @endif
@@ -96,7 +90,7 @@
         </tr>
         @endforeach
     </tbody>
-</table> 
+</table>
                                                     <div class="row">
                                                     <div class="col-lg-12 col-md-12">
 </div>                                                     <div class="col-lg-6 col-md-6">
@@ -120,6 +114,6 @@
                 </div>
             </div>
                         </div>
-            
+
     @endsection
 <!-- PROGRAMMING & CODING BY AKASH KUMAR BASAK -->
