@@ -73,6 +73,8 @@
             <strong>{{ $subtotal }}</strong>
             </td>
             <td>
+                {{ $order->customer->first_name }} {{ $order->customer->last_name }}, <br>
+                {{ $order->customer->phone }}, <br>
                 {{ $order->customer->house_number }}, {{ $order->customer->street }}, {{ $order->customer->post_code }}, {{ $order->customer->country }}
             </td>
             <td>

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\backend\BannerController;
 use App\Http\Controllers\backend\Category1Controller;
 use App\Http\Controllers\backend\Category2Controller;
+use App\Http\Controllers\backend\SliderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\CompanySettingsConrtoller;
@@ -36,6 +38,8 @@ Route::resource('companySettings', CompanySettingsConrtoller::class);
 Route::resource('category1', Category1Controller::class);
 Route::resource('category2', Category2Controller::class);
 Route::resource('product', ProductController::class);
+Route::resource('slider', SliderController::class);
+Route::resource('banner', BannerController::class);
 Route::resource('customer-order', \App\Http\Controllers\backend\OrderController::class);
 });
 

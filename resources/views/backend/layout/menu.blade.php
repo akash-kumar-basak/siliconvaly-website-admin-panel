@@ -59,7 +59,31 @@
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{ route('customer-order.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                <i class="ri-record-circle-line"></i> <span data-key="t-dashboards">Order</span>
+                                <i class="ri-order-play-fill"></i> <span data-key="t-dashboards">Order</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="ri-user-2-fill"></i> <span data-key="t-dashboards">Customer</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="{{ route('slider.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="ri-slideshow-2-fill"></i> <span data-key="t-dashboards">Slider</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="{{ route('banner.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="ri-image-2-fill"></i> <span data-key="t-dashboards">Banner</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="ri-chat-follow-up-line"></i> <span data-key="t-dashboards">Web Visitor</span>
                             </a>
                         </li>
 
