@@ -187,31 +187,19 @@
                     <div class="hero-slider swiper-container">
                         <div class="swiper-wrapper">
                             <!-- Single Slider  -->
-                            <div class="swiper-slide bg-img d-flex" style="background-image: url({{asset('images/slider-images/slider-image1.jpg')}});">
+                            @foreach($sliders as $slider)
+                            <div class="swiper-slide bg-img d-flex" style="background-image: url({{asset($slider->image)}});">
                                 <div class="container align-self-center">
                                     <div class="slider-content-1 slider-animated-1 text-start pl-60px">
-                                        <span class="animated color-white">GALAXY WATCH</span>
+                                        <span class="animated color-white">{{ $slider->title }}</span>
                                         <h1 class="animated color-white">
-                                            Pre-Order <br />
-                                            <strong>Exclusive</strong>
+                                            {{ $slider->description }}
                                         </h1>
                                         <a href="shop-4-column.html" class="shop-btn animated">SHOP NOW</a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Single Slider  -->
-                            <div class="swiper-slide bg-img d-flex" style="background-image: url({{asset('images/slider-images/slider-image2.jpg')}});">
-                                <div class="container align-self-center">
-                                    <div class="slider-content-1 slider-animated-1 text-start pl-60px">
-                                        <span class="animated color-white">BT HEADPHONE</span>
-                                        <h1 class="animated color-white">
-                                            Headset <br />
-                                            <strong>Hyper X</strong>
-                                        </h1>
-                                        <a href="shop-4-column.html" class="shop-btn animated">SHOP NOW</a>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
                             <!-- Single Slider  -->
                         </div>
                         <!-- Add Pagination -->
