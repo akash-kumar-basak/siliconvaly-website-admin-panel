@@ -8,7 +8,7 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Product List</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Slider List</h4>
 
                                     <div class="flex-shrink-0">
                                         <a href="{{ route('slider.create') }}"><button type="button" class="btn btn-sm btn-info"><i class="ri-add-line label-icon align-middle fs-16"></i>Add More</button></a>
