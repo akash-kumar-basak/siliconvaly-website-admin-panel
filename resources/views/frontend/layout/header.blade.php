@@ -166,7 +166,7 @@
 </script>
 
                             @else
-                                <a href="/customer_login" class="user"><i class="icon-user"></i></a>
+                                <a href="/customer_login_form" class="user"><i class="icon-user"></i></a>
                             @endif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <!-- <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="0"><i class="icon-heart"></i></a> -->
                                 <a href="#offcanvas-cart" class="bag offcanvas-toggle" id="totalProductCart" data-number="{{ count(customerProductCart()) }}"><i class="icon-bag"></i><span>৳0.00</span></a>
@@ -260,7 +260,7 @@
     </script>
 
                                @else
-                                   <a href="/customer_login" class="user"><i class="icon-user"></i></a>
+                                   <a href="/customer_login_form" class="user"><i class="icon-user"></i></a>
                                @endif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <!-- <a href="#offcanvas-wishlist" class="heart offcanvas-toggle d-xs-none" data-number="3"><i class="icon-heart"></i></a> -->
                         <a href="#offcanvas-cart" class="bag offcanvas-toggle" id="totalProductCartMobileView" data-number="{{ count(customerProductCart()) }}"><i class="icon-bag"></i><span>$20.00</span></a>
@@ -510,7 +510,7 @@
                     <button class="btn btn-danger" type="button" onclick="customerLogout()"><i class="icon-logout"></i></button>
 
                     @else
-                    <a href="/customer_login" class="user"><i class="icon-user"></i></a>
+                    <a href="/customer_login_form" class="user"><i class="icon-user"></i></a>
                     @endif &nbsp;&nbsp;
                     <!-- <a href="wishlist.html" data-number="3"><i class="icon-heart"></i></a> -->
                     <!-- <a href="cart.html" data-number="3"><i class="icon-bag"></i></a> -->

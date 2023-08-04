@@ -151,9 +151,9 @@ public function customerLoginForm(){
             ]);
         }
 
-//        if (auth()->guard('web')->user()){
-//            Auth::logout();
-//        }
+        if (auth()->user()){
+            Auth::logout();
+        }
 
         if (Auth::guard('customer')->attempt($request->only(['email','password']))){
             return redirect('/');

@@ -53,7 +53,7 @@ Route::get('/customer/logout', [CustomerController::class, 'customerLogout'])->n
 //---------------frontend------------------------
 //Auth::routes();
 Route::resource('customer', CustomerController::class);
-Route::get('/customer_login', [CustomerController::class, 'customerLoginForm']);
+Route::get('/customer_login_form', [CustomerController::class, 'customerLoginForm']);
 Route::post('/customer_login', [CustomerController::class, 'customerLogin'])->name('customer_login');
 Route::get('/customer_order', [CustomerController::class, 'customerOrder'])->name('customer_order');
 Route::resource('product_cart', ProductCartController::class);
