@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title', 'Slider')
+@section('title', 'Banner')
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -20,11 +20,11 @@
 
 
                                 <div class="flex-grow-1">
-                                    <h4 class="fs-16 mb-1">Insert Slider</h4>
-                                    <p class="text-muted mb-0">You can insert slider from here. Give required information and click save button.</p>
+                                    <h4 class="fs-16 mb-1">Edit Banner</h4>
+                                    <p class="text-muted mb-0">You can edit banner from here. Give required information and click save button.</p>
                                 </div>
                                 <br>
-                                <form class="form-horizontal mt-2" action="{{ route('slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
+                                <form class="form-horizontal mt-2" action="{{ route('banner.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="">
@@ -46,7 +46,7 @@
                                                                         <div class="col-lg-6">
                                                                             <div class="mb-3">
                                                                                 <label class="form-label" for="gen-info-email-input">Preview Image</label>
-                                                                                <img src="{{ asset($slider->image) }}" width="auto" height="100px">
+                                                                                <img src="{{ asset($banner->image) }}" width="auto" height="100px">
                                                                                 <div class="invalid-feedback">Please enter a image</div>
                                                                             </div>
                                                                         </div>
@@ -55,7 +55,7 @@
                                                                         <div class="col-lg-12">
                                                                             <div class="mb-3">
                                                                                 <label class="form-label" for="gen-info-email-input">Title</label>
-                                                                                <input type="text" class="form-control" id="gen-info-email-input" value="{{ $slider->title }}" name="title" placeholder="Enter title" required >
+                                                                                <input type="text" class="form-control" id="gen-info-email-input" value="{{ $banner->title }}" name="title" placeholder="Enter title" required >
                                                                                 <div class="invalid-feedback">Please enter a title</div>
                                                                             </div>
                                                                         </div>
@@ -65,9 +65,18 @@
                                                                             <div class="mb-3">
                                                                                 <div>
                                                                                     <label class="form-label" for="gen-info-description-input">Description</label>
-                                                                                    <textarea class="form-control summernote" placeholder="Enter description" name="description" rows="2">{{ $slider->description }}</textarea>
+                                                                                    <textarea class="form-control summernote" placeholder="Enter description" name="description" rows="2">{{ $banner->description }}</textarea>
                                                                                     <div class="invalid-feedback">Please enter a description</div>
                                                                                 </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <div class="mb-3">
+                                                                                <label class="form-label" for="gen-info-email-input">Product Link</label>
+                                                                                <input type="text" class="form-control" id="gen-info-email-input" name="link" value="{{ $banner->link }}" placeholder="Enter Link" required >
+                                                                                <div class="invalid-feedback">Please enter a link</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>

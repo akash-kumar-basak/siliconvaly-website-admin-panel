@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\backend\BannerModel;
 use App\Models\backend\Category1Model;
 use App\Models\backend\Category2Model;
 use App\Models\backend\ProductModel;
@@ -14,6 +15,7 @@ class homeController extends Controller
 {
     public function home(){
         $data['sliders'] = SliderModel::all();
+        $data['banners'] = BannerModel::all();
         $data['product'] = ProductModel::inRandomOrder()->get();
         $data['category1s'] = Category1Model::all();
         $data['category2s'] = Category2Model::all();

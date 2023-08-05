@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title', 'Slider')
+@section('title', 'Banner')
 @section('content')
 <div class="main-content">
             <div class="page-content">
@@ -8,10 +8,10 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Slider List</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Banner List</h4>
 
                                     <div class="flex-shrink-0">
-                                        <a href="{{ route('slider.create') }}"><button type="button" class="btn btn-sm btn-info"><i class="ri-add-line label-icon align-middle fs-16"></i>Add More</button></a>
+                                        <a href="{{ route('banner.create') }}"><button type="button" class="btn btn-sm btn-info"><i class="ri-add-line label-icon align-middle fs-16"></i>Add More</button></a>
                                     </div>
                                 </div><!-- end card header -->
 
@@ -32,19 +32,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($sliders as $slider)
+                                                    @foreach ($banners as $banner)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td><img src="{{ $slider->image }}" width="auto" height="30"></td>
-                                                        <td>{{ $slider->title }}</td>
-                                                        <td>{{ $slider->description }}</td>
+                                                        <td><img src="{{ $banner->image }}" width="auto" height="30"></td>
+                                                        <td>{{ $banner->title }}</td>
+                                                        <td>{!! $banner->description !!}</td>
                                                         <td><div class="form-check form-switch form-switch-info mb-3">
                                                             <input class="form-check-input" type="checkbox" role="switch" name="status" checked>
                                                         </div></td>
                                                         <td>
                                                             <div class="btn-group">
-                                                            <a href="{{ route('slider.edit', $slider->id) }}"><i class="btn btn-sm btn-success ri-edit-box-line label-icon align-middle fs-16"></i></a>&nbsp;
-                                                            <form action="{{ route('slider.destroy', $slider->id) }}" onsubmit="return confirm('You want to delete this product?');" method="POST">
+                                                            <a href="{{ route('banner.edit', $banner->id) }}"><i class="btn btn-sm btn-success ri-edit-box-line label-icon align-middle fs-16"></i></a>&nbsp;
+                                                            <form action="{{ route('banner.destroy', $banner->id) }}" onsubmit="return confirm('You want to delete this Banner?');" method="POST">
                                                                 @csrf @method('DELETE')
                                                                 <button type="submit" class="btn btn-sm btn-danger"><i class="ri-delete-bin-6-line label-icon align-middle fs-16"></i></button>
                                                             </form>

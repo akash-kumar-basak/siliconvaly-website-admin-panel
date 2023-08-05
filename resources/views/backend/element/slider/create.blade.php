@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title', 'Dlider')
+@section('title', 'Slider')
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -60,6 +60,15 @@
                                                                     <textarea class="form-control summernote" placeholder="Enter description" name="description" rows="2"></textarea>
                                                                     <div class="invalid-feedback">Please enter a description</div>
                                                                 </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="gen-info-email-input">Product Link</label>
+                                                                <input type="text" class="form-control" id="gen-info-email-input" name="link" placeholder="Enter Link" required >
+                                                                <div class="invalid-feedback">Please enter a link</div>
                                                             </div>
                                                         </div>
                                                     </div>

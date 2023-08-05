@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title', 'Dlider')
+@section('title', 'Banner')
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -20,11 +20,11 @@
 
 
                         <div class="flex-grow-1">
-                                                <h4 class="fs-16 mb-1">Insert Slider</h4>
-                                                <p class="text-muted mb-0">You can insert slider from here. Give required information and click save button.</p>
+                                                <h4 class="fs-16 mb-1">Insert Banner</h4>
+                                                <p class="text-muted mb-0">You can insert banner from here. Give required information and click save button.</p>
                                             </div>
                                             <br>
-                    <form class="form-horizontal mt-2" action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
+                    <form class="form-horizontal mt-2" action="{{ route('banner.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="">
                         <div class="row">
@@ -60,6 +60,15 @@
                                                                     <textarea class="form-control summernote" placeholder="Enter description" name="description" rows="2"></textarea>
                                                                     <div class="invalid-feedback">Please enter a description</div>
                                                                 </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="gen-info-email-input">Product Link</label>
+                                                                <input type="text" class="form-control" id="gen-info-email-input" name="link" placeholder="Enter Link" required >
+                                                                <div class="invalid-feedback">Please enter a link</div>
                                                             </div>
                                                         </div>
                                                     </div>

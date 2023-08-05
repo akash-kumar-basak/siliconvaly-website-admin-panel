@@ -37,9 +37,9 @@
                                             <div class="slider-content-1 slider-animated-1 text-start pl-60px">
                                                 <span class="animated color-white">{{ $slider->title }}</span>
                                                 <h1 class="animated color-white">
-                                                    {{ $slider->description }}
+                                                    {!! $slider->description !!}
                                                 </h1>
-                                                <a href="shop-4-column.html" class="shop-btn animated">SHOP NOW</a>
+                                                <a href="{{ $slider->link }} " class="shop-btn animated">SHOP NOW</a>
                                             </div>
                                         </div>
                                     </div>
@@ -55,10 +55,10 @@
                     <div class="col-lg-3">
                         <div class="banner-area banner-area-2">
                             <div class="banner-wrapper mb-15px">
-                                <a href="shop-4-column.html"><img src="{{asset('frontend/images/banner-images/banner-image1.jpg')}}" alt="" width="230px" height="212px" /></a>
+                                <a href="{{ $banners[0]->link }}"><img src="{{ asset($banners[0]->image) }}" alt="" width="230px" height="212px" /></a>
                             </div>
                             <div class="banner-wrapper">
-                                <a href="shop-4-column.html"><img src="{{asset('frontend/images/banner-images/banner-image2.jpg')}}" alt="" width="230px" height="212px" /></a>
+                                <a href="{{ $banners[0]->link }}"><img src="{{ asset($banners[1]->image) }}" alt="" width="230px" height="212px" /></a>
                             </div>
                         </div>
                     </div>
@@ -191,9 +191,9 @@
                                     <div class="slider-content-1 slider-animated-1 text-start pl-60px">
                                         <span class="animated color-white">{{ $slider->title }}</span>
                                         <h1 class="animated color-white">
-                                            {{ $slider->description }}
+                                            {!! $slider->description !!}
                                         </h1>
-                                        <a href="shop-4-column.html" class="shop-btn animated">SHOP NOW</a>
+                                        <a href="{{ $slider->link }}" class="shop-btn animated">SHOP NOW</a>
                                     </div>
                                 </div>
                             </div>
@@ -209,10 +209,10 @@
             <div class="col-lg-3">
                 <div class="banner-area">
                     <div class="banner-wrapper mb-md-30px mb-lm-30px mb-sm-30px">
-                        <a href="shop-4-column.html"><img src="{{asset('images/banner-images/banner-image1.jpg')}}" alt="" /></a>
+                        <a href="{{ $banners[0]->link }}"><img src="{{ asset($banners[0]->image) }}" alt="" /></a>
                     </div>
                     <div class="banner-wrapper mb-0px">
-                        <a href="shop-4-column.html"><img src="{{asset('images/banner-images/banner-image2.jpg')}}" alt="" /></a>
+                        <a href="{{ $banners[1]->link }}"><img src="{{ asset($banners[1]->image) }}" alt="" /></a>
                     </div>
                 </div>
             </div>

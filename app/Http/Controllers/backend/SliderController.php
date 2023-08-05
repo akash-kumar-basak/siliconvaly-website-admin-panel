@@ -82,7 +82,7 @@ class SliderController extends Controller
 
     public function storeOrUpdate(Request $request, $id = null){
         try {
-            $product = SliderModel::updateOrCreate(
+            $slider = SliderModel::updateOrCreate(
                 [
                     'id'            => $id
                 ],
@@ -90,11 +90,12 @@ class SliderController extends Controller
 
                     'title'         =>$request->title,
                     'description'   =>$request->description,
+                    'link'          =>$request->link,
                     'status'        =>1,
                 ]);
 
             if(isset($request->image)){
-                $this->upload_file($request->image, $product, 'image', 'slider/image');
+                $this->upload_file($request->image, $slider, 'image', 'slider/image');
             }
         } catch (\Throwable $th) {
             throw $th;

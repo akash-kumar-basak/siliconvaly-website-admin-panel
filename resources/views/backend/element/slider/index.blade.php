@@ -37,14 +37,14 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><img src="{{ $slider->image }}" width="auto" height="30"></td>
                                                         <td>{{ $slider->title }}</td>
-                                                        <td>{{ $slider->description }}</td>
+                                                        <td>{!! $slider->description !!}</td>
                                                         <td><div class="form-check form-switch form-switch-info mb-3">
                                                             <input class="form-check-input" type="checkbox" role="switch" name="status" checked>
                                                         </div></td>
                                                         <td>
                                                             <div class="btn-group">
                                                             <a href="{{ route('slider.edit', $slider->id) }}"><i class="btn btn-sm btn-success ri-edit-box-line label-icon align-middle fs-16"></i></a>&nbsp;
-                                                            <form action="{{ route('slider.destroy', $slider->id) }}" onsubmit="return confirm('You want to delete this product?');" method="POST">
+                                                            <form action="{{ route('slider.destroy', $slider->id) }}" onsubmit="return confirm('You want to delete this slider?');" method="POST">
                                                                 @csrf @method('DELETE')
                                                                 <button type="submit" class="btn btn-sm btn-danger"><i class="ri-delete-bin-6-line label-icon align-middle fs-16"></i></button>
                                                             </form>
