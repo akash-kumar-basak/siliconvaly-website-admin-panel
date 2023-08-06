@@ -58,7 +58,7 @@
                                 <a href="{{ $banners[0]->link }}"><img src="{{ asset($banners[0]->image) }}" alt="" width="230px" height="212px" /></a>
                             </div>
                             <div class="banner-wrapper">
-                                <a href="{{ $banners[0]->link }}"><img src="{{ asset($banners[1]->image) }}" alt="" width="230px" height="212px" /></a>
+                                <a href="{{ $banners[1]->link }}"><img src="{{ asset($banners[1]->image) }}" alt="" width="230px" height="212px" /></a>
                             </div>
                         </div>
                     </div>
