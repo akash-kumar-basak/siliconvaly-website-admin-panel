@@ -64,7 +64,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <a class="nav-link menu-link" href="{{ route('customer-admin.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-user-2-fill"></i> <span data-key="t-dashboards">Customer</span>
                             </a>
                         </li>
@@ -82,7 +82,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <a class="nav-link menu-link" href="{{ route('web-visitor.index') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-chat-follow-up-line"></i> <span data-key="t-dashboards">Web Visitor</span>
                             </a>
                         </li>
