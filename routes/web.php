@@ -68,10 +68,10 @@ Route::get('/', [homeController::class, 'home']);
 Route::get('/product/{category}/{id}', [homeController::class, 'productDetails']);
 
 Route::group(['middleware' => 'auth:customer'], function () {
-    Route::get('/product_category_show', [homeController::class, 'productCategoryShow']);
+
     Route::get('/product_cart', [homeController::class, 'productCart']);
     Route::get('/product_checkout', [homeController::class, 'productCheckout']);
     Route::post('/product_to_cart', [ProductCartController::class, 'productToCart']);
     Route::get('/customer_order_congratulation', [OrderController::class, 'orderCongratulation']);
 });
-
+Route::get('/product_category_show', [homeController::class, 'productCategoryShow']);

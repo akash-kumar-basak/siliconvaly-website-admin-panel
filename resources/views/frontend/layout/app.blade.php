@@ -7,6 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="upg-z8V9g72Y39H79ZNBO4VUZUIsRL9cC4LyVAdY7xo" />
     <meta name="facebook-domain-verification" content="6plkrpajlqllnxzqqg8blejrj7m27m" />
     <link rel="icon" type="image/x-icon" href="{{asset($CompanyInformation->favicon)}}">
     <!-- Google Fonts -->
